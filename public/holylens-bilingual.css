@@ -1,0 +1,51 @@
+.hl-language-switch {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 9999;
+  display: inline-flex;
+  min-width: 56px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 999px;
+  background: #123d6a;
+  box-shadow: 0 10px 28px rgba(2, 26, 66, 0.22);
+  color: #fff !important;
+  font-family: Manrope, "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-decoration: none !important;
+  transition: transform 180ms ease, background-color 180ms ease;
+}
+
+.hl-language-switch:hover,
+.hl-language-switch:focus-visible {
+  background: #1aa8a6;
+  color: #fff !important;
+  transform: translateY(-2px);
+}
+
+.hl-language-switch:focus-visible {
+  outline: 3px solid rgba(26, 168, 166, 0.35);
+  outline-offset: 3px;
+}
+
+html[lang="zh-CN"] body {
+  font-family: Manrope, "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
+}
+
+@media (max-width: 575.98px) {
+  .hl-language-switch {
+    right: 14px;
+    bottom: 14px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hl-language-switch {
+    transition: none;
+  }
+}
