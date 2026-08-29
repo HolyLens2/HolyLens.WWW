@@ -55,7 +55,7 @@ export default function MiniScopeDetailPage() {
       </section>
 
       <section className="detail-features">
-        <div className="detail-feature-image"><img src="/images/holylens/feature-miniscope-1-v2.png" alt="MiniScope 1.0 portable ultrasound console and probe product presentation" /></div>
+        <div className="detail-feature-image"><img src="/images/holylens/feature-miniscope-1-transparent.png" alt="MiniScope 1.0 portable ultrasound console and probe product presentation" /></div>
         <div className="detail-feature-copy"><p className="detail-section-label">CORE FUNCTIONS</p><h2>Designed around the examination.</h2>
           <div className="feature-list">{features.map(([title, text], index) => <article key={title}><span>0{index + 1}</span><div><h3>{title}</h3><p>{text}</p></div></article>)}</div>
         </div>

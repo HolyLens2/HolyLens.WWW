@@ -39,7 +39,7 @@ function renderPage(template, product, lang, prefix) {
   let html = template.replaceAll("/product/miniscope-1/", `/product/${product.slug}/`);
   html = html
     .replaceAll("product-miniscope-1-solid-wide.png", product.hero)
-    .replaceAll("feature-miniscope-1-v2.png", product.scene)
+    .replaceAll("feature-miniscope-1-transparent.png", product.scene)
     .replaceAll("structure-miniscope-1.png", product.structure);
   html = sectionReplace(html, "detail-hero", `<section class="detail-hero"><div class="detail-hero-copy"><a class="detail-back" href="${productHref}">${l.back}</a><p class="detail-kicker">${localized(product.kicker, lang)}</p><h1>${name}</h1><p class="detail-lead">${localized(product.tagline, lang)}</p><div class="detail-tags">${tags}</div><a class="detail-primary" href="mailto:sales@holylens.com?subject=${mailSubject}">${l.request} <b>↗</b></a></div><div class="detail-hero-image${wideHeroClass}"><img src="/images/holylens/${product.hero}" alt="${name}"/></div></section>`);
   html = sectionReplace(html, "detail-intro", `<section class="detail-intro"><p class="detail-section-label">${l.overview}</p><div><h2>${localized(product.overviewTitle, lang)}</h2><p>${localized(product.overview, lang)}</p></div></section>`);
