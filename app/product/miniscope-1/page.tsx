@@ -55,7 +55,7 @@ export default function MiniScopeDetailPage() {
       </section>
 
       <section className="detail-features">
-        <div className="detail-feature-image"><img src="/images/holylens/about-device-detail-realistic.png" alt="Clinician using the MiniScope 1.0 probe and connected workspace" /></div>
+        <div className="detail-feature-image"><img src="/images/holylens/product-miniscope-1-solid.png" alt="MiniScope 1.0 portable ultrasound console and probe" /></div>
         <div className="detail-feature-copy"><p className="detail-section-label">CORE FUNCTIONS</p><h2>Designed around the examination.</h2>
           <div className="feature-list">{features.map(([title, text], index) => <article key={title}><span>0{index + 1}</span><div><h3>{title}</h3><p>{text}</p></div></article>)}</div>
         </div>
@@ -65,7 +65,7 @@ export default function MiniScopeDetailPage() {
         <div className="detail-structure-copy"><p className="detail-section-label">DEVICE STRUCTURE</p><h2>Everything needed,<br />held in one hand.</h2><p>A durable handheld console combines live imaging, direct controls and secure local processing. The detachable probe and standard USB-C interface simplify clinical use, cleaning and charging.</p>
           <ol><li><b>Medical display</b><span>Live image, measurement and status review</span></li><li><b>Direct control pad</b><span>Fast adjustment with gloved hands</span></li><li><b>AI processing module</b><span>On-device image optimization and guidance</span></li><li><b>Detachable probe</b><span>Multi-frequency convex array transducer</span></li></ol>
         </div>
-        <div className="detail-structure-image"><img src="/images/holylens/hero-portable-ultrasound-transparent-v4.png" alt="MiniScope 1.0 handheld console and ultrasound probe" /></div>
+        <div className="detail-structure-image"><img src="/images/holylens/structure-miniscope-1.png" alt="Exploded structure diagram of the MiniScope 1.0 handheld console and ultrasound probe" /></div>
       </section>
 
       <section className="detail-workflow">
