@@ -68,7 +68,21 @@ export default function ProductPage() {
         <div className="contact-grid"><p><b>Email</b><br /><a href="mailto:sales@holylens.com">sales@holylens.com</a></p><p><b>Phone</b><br />+86 177 2101 8082</p></div>
       </section>
 
-      <footer><a className="brand" href="/"><Logo /></a><p>AI medical devices for earlier insight and better care.</p><span>HolyLens (Shanghai) Medical Devices Co., Ltd.<br />Address: 4F, Liuhe Building, No. 59 North Yunnan Road, Huangpu District, Shanghai<br />Postal Code: 200001</span><a href="#top">Back to top ↑</a></footer>
+      <footer className="site-footer">
+        <div className="footer-main">
+          <div className="footer-brand">
+            <a className="brand" href="#top"><Logo /></a>
+            <h2>See earlier.<br />Care better.</h2>
+            <p>AI medical devices for earlier insight and better care.</p>
+          </div>
+          <div className="footer-links">
+            <div><small>Explore</small><a href="/">Home</a><a href="/#about">About Us</a><a href="/product">Product</a><a href="/#solution">Solution</a></div>
+            <div><small>Technology</small><a href="/#solution">Medical AI Platform</a><a href="/#solution">Medical AI Chip</a><a href="/#demos">Clinical Solutions</a></div>
+            <div><small>Contact</small><a href="mailto:info@holylens.com">info@holylens.com</a><a href="mailto:sales@holylens.com">sales@holylens.com</a><p>+86 177 2101 8082</p></div>
+          </div>
+        </div>
+        <div className="footer-bottom"><span>HolyLens (Shanghai) Medical Devices Co., Ltd.</span><span>Address: 4F, Liuhe Building, No. 59 North Yunnan Road, Huangpu District, Shanghai<br />Postal Code: 200001</span><a href="#top">Back to top ↑</a></div>
+      </footer>
     </main>
   );
 }
