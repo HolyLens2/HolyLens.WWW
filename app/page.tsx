@@ -232,7 +232,7 @@ export default function Home() {
             <div><small>Contact</small><a href="mailto:info@holylens.com">info@holylens.com</a><a href="mailto:sales@holylens.com">sales@holylens.com</a><p>+86 177 2101 8082</p></div>
           </div>
         </div>
-        <div className="footer-bottom"><span>© HolyLens 2026. All rights reserved.</span><span>Intelligence for human health.</span><a href="#top">Back to top ↑</a></div>
+        <div className="footer-bottom"><span>HolyLens (Shanghai) Medical Devices Co., Ltd.</span><span>Address: 4F, Liuhe Building, No. 59 North Yunnan Road, Huangpu District, Shanghai<br />Postal Code: 200001</span><a href="#top">Back to top ↑</a></div>
       </footer>
     </main>
   );

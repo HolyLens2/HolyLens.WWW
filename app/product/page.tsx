@@ -68,7 +68,7 @@ export default function ProductPage() {
         <div className="contact-grid"><p><b>Email</b><br /><a href="mailto:sales@holylens.com">sales@holylens.com</a></p><p><b>Phone</b><br />+86 177 2101 8082</p></div>
       </section>
 
-      <footer><a className="brand" href="/"><Logo /></a><p>AI medical devices for earlier insight and better care.</p><span>© HolyLens 2026</span><a href="#top">Back to top ↑</a></footer>
+      <footer><a className="brand" href="/"><Logo /></a><p>AI medical devices for earlier insight and better care.</p><span>HolyLens (Shanghai) Medical Devices Co., Ltd.<br />Address: 4F, Liuhe Building, No. 59 North Yunnan Road, Huangpu District, Shanghai<br />Postal Code: 200001</span><a href="#top">Back to top ↑</a></footer>
     </main>
   );
 }
