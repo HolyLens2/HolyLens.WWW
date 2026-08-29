@@ -14,9 +14,10 @@ function cleanHtml(html) {
     .replace("</head>", '<link rel="stylesheet" href="/styles.css"/></head>');
 }
 
-const [sourceHome, sourceProduct] = await Promise.all([
+const [sourceHome, sourceProduct, sourceMiniScope] = await Promise.all([
   fetch("http://localhost:3000/").then((response) => response.text()).then(cleanHtml),
   fetch("http://localhost:3000/product").then((response) => response.text()).then(cleanHtml),
+  fetch("http://localhost:3000/product/miniscope-1").then((response) => response.text()).then(cleanHtml),
 ]);
 
 function replaceAll(input, replacements) {
@@ -28,7 +29,7 @@ function replaceAll(input, replacements) {
 function injectLanguageSwitch(html, lang, page) {
   const other = lang === "zh" ? "EN" : "CN";
   const otherLang = lang === "zh" ? "en" : "zh";
-  const suffix = page === "product" ? "product/" : "";
+  const suffix = page === "product" ? "product/" : page === "miniscope" ? "product/miniscope-1/" : "";
   return html.replace("</header>", `<a class="language-switch" href="/${otherLang}/${suffix}">${other}</a></header>`);
 }
 
@@ -57,14 +58,14 @@ const zhCommon = [
   ["Clinical Intelligence", "临床智能"], ["AI-assisted review makes complex cases clearer", "AI 辅助会诊，让复杂病例更清晰"], ["Multimodal analysis brings imaging, pathology and clinical context into one dependable view.", "多模态分析融合影像、病理与临床信息，为复杂病例提供可靠、完整的判断依据。"],
   ["Connected Care", "协作诊疗"], ["Multidisciplinary care, connected by intelligence", "以智能连接多学科诊疗"], ["Shared insight helps clinical teams make faster, better-informed decisions around every patient.", "共享洞察帮助医疗团队围绕每位患者，更快做出信息充分的诊疗决策。"],
   ["Community Health", "基层健康"], ["Earlier screening, closer to every community", "让更早筛查走近每个社区"], ["Portable intelligent devices bring dependable screening and follow-up closer to families.", "便携智能设备把可靠筛查与持续随访带到社区和家庭身边。"],
-  ["Get in Touch", "联系我们"], ["Let’s talk about a<br/>healthier tomorrow.", "共同探讨一个<br/>更健康的明天。"], ["New York", "纽约"], ["Email", "邮箱"], ["Phone", "电话"], ["Back to top", "返回顶部"],
+  ["Get in Touch", "联系我们"], ["Let’s talk about a<br/>healthier tomorrow.", "共同探讨一个<br/>更健康的明天。"], ["Shanghai", "上海"], ["Email", "邮箱"], ["Phone", "电话"], ["Back to top", "返回顶部"],
   ["AI medical devices for earlier insight and better care.", "以 AI 医疗设备带来更早洞察与更优质医疗。"],
   ["See earlier.<br/>Care better.", "更早看见，<br/>更好守护。"], ["Start a conversation", "与我们联系"], [">Explore<", ">网站导航<"], [">Technology<", ">核心技术<"],
   ["Medical AI Platform", "AI 医疗大模型平台"], ["Medical AI Chip", "AI 医疗专用芯片"], ["Customer Stories", "客户案例"], ["Intelligence for human health.", "以智能守护人类健康。"], ["All rights reserved.", "保留所有权利。"],
   ["ADVANCED IMAGING × ACOUSTIC TECHNOLOGY", "先进医学影像 × 声学技术"], ["PRODUCT PORTFOLIO", "产品组合"], ["LATEST / 最新动态", "最新动态"], ["APPLICATIONS", "应用场景"], ["AWARDS", "获奖资讯"], ["WEBINAR", "线上研讨会"], ["CASE STUDY", "客户案例"],
   ["We treat even the most complicated cases", "我们致力于应对最复杂的医疗案例"], ["Our medical team is dedicated to providing better care", "我们的医疗团队致力于提供更优质的医疗服务"], ["Caring is a cause of the growing community", "关怀推动健康社区持续成长"],
   ["Dr. Devilman Crybaby", "德维尔曼医生"], ["Jane Cooper", "简·库珀"], ["Floyd Miles", "弗洛伊德·迈尔斯"], ["Marvin McKinney", "马文·麦金尼"],
-  ["175 Varick St, 3rd FL,", "瓦里克街 175 号 3 层，"], ["New York, NY, 10014", "美国纽约州纽约市 10014"], ["AI MEDICAL DEVICE", "AI 医疗设备"], ["AI IMAGING", "AI 影像系统"], ["ACOUSTIC", "声学系统"], ["ONLINE", "在线"], ["READY", "就绪"], ["Meet HolyLens-N3", "认识 HolyLens-N3"]
+  ["4F, No. 59 North Yunnan Road,", "云南北路59号 4层，"], ["Shanghai 200001", "上海 200001"], ["AI MEDICAL DEVICE", "AI 医疗设备"], ["AI IMAGING", "AI 影像系统"], ["ACOUSTIC", "声学系统"], ["ONLINE", "在线"], ["READY", "就绪"], ["Meet HolyLens-N3", "认识 HolyLens-N3"]
 ];
 
 const enCommon = [
@@ -97,20 +98,49 @@ const zhProduct = [
   ["AI-assisted", "AI 辅助"], ["Clinical workflow", "临床工作流"], ["Home monitoring", "家庭监测"], ["Family health", "家庭健康"], ["Secure data", "安全数据"], ["View product information", "查看产品资料"], ["Request product information", "索取产品资料"], ["ONE HOLYLENS PLATFORM", "统一 HOLYLENS 平台"], ["Devices that work<br/>better together.", "设备互联，<br/>协同更高效。"], ["CAPTURE", "采集"], ["ANALYZE", "分析"], ["REPORT", "报告"], ["CARE", "诊疗"], ["Standardized acquisition, intelligent analysis and structured reporting create a consistent path from examination to clinical action.", "标准化采集、智能分析与结构化报告，构建从检查到临床行动的一致路径。"], ["Product Enquiries", "产品咨询"], ["Find the right device<br/>for your workflow.", "为您的工作流程，<br/>选择合适的设备。"]
 ];
 
+const zhMiniScope = [
+  ["← All products", "← 返回全部产品"], ["PORTABLE AI ULTRASOUND", "便携式 AI 超声"],
+  ["Portable intelligent ultrasound for fast, consistent imaging at the point of care.", "便携式智能超声，为诊疗现场提供快速、一致的医学影像。"],
+  ["Request product information", "索取产品资料"],
+  ["PRODUCT OVERVIEW", "产品概览"], ["Clear imaging,<br/>where care happens.", "清晰影像，<br/>随诊疗所需而至。"],
+  ["MiniScope 1.0 brings ultrasound acquisition, AI guidance and clinical review into one lightweight device. Its simplified controls support efficient examinations while preserving the image quality and dependable data handling clinical teams expect.", "微影 1.0 将超声采集、AI 引导与临床查看整合于一台轻量化设备。简洁的操作方式提升检查效率，同时提供临床团队所需的影像质量与可靠数据管理。"],
+  ["CORE FUNCTIONS", "核心功能"], ["Designed around the examination.", "围绕临床检查而设计。"],
+  ["Portable imaging", "便携式影像"], ["A compact handheld system designed for bedside, outpatient and mobile clinical use.", "紧凑型手持系统，适用于床旁、门诊和移动医疗场景。"],
+  ["AI-assisted guidance", "AI 辅助引导"], ["Real-time acquisition guidance helps clinicians obtain clear, consistent images with less repetition.", "实时采集引导帮助医务人员减少重复操作，获得清晰、一致的影像。"],
+  ["Clear on-device review", "设备端清晰查看"], ["A high-contrast display presents live imaging, measurements and examination status at a glance.", "高对比度显示屏集中呈现实时影像、测量结果与检查状态。"],
+  ["Connected workflow", "互联工作流程"], ["Encrypted examination data can move securely into the HolyLens workspace for review and reporting.", "加密检查数据可安全传输至 HolyLens 工作空间，用于查看与生成报告。"],
+  ["DEVICE STRUCTURE", "设备结构"], ["Everything needed,<br/>held in one hand.", "所需功能，<br/>尽在一手掌握。"],
+  ["A durable handheld console combines live imaging, direct controls and secure local processing. The detachable probe and standard USB-C interface simplify clinical use, cleaning and charging.", "耐用的手持主机集实时成像、快捷控制与安全本地处理于一体。可拆卸探头与标准 USB-C 接口，便于临床使用、清洁和充电。"],
+  ["Medical display", "医用显示屏"], ["Live image, measurement and status review", "查看实时影像、测量结果与设备状态"], ["Direct control pad", "快捷控制按键"], ["Fast adjustment with gloved hands", "戴手套时也能快速调节"],
+  ["AI processing module", "AI 处理模块"], ["On-device image optimization and guidance", "在设备端完成影像优化与操作引导"], ["Detachable probe", "可拆卸探头"], ["Multi-frequency convex array transducer", "多频凸阵换能器"],
+  ["CLINICAL WORKFLOW", "临床工作流程"], ["From scan to report,<br/>without unnecessary steps.", "从扫描到报告，<br/>减少不必要步骤。"],
+  ["Prepare", "准备"], ["Select the examination preset and connect the appropriate probe.", "选择检查预设并连接适用探头。"], ["Acquire", "采集"], ["Use live AI guidance to support positioning and image consistency.", "通过实时 AI 引导辅助定位并保持影像一致性。"], ["Review", "查看"], ["Confirm images and measurements directly on the device.", "直接在设备上确认影像与测量结果。"], ["Share", "共享"], ["Send encrypted data to the HolyLens workspace for reporting and follow-up.", "将加密数据发送至 HolyLens 工作空间，用于报告与随访。"],
+  ["SPECIFICATIONS", "产品规格"], ["MiniScope 1.0<br/>technical profile.", "微影 1.0<br/>技术规格。"], ["Specifications shown are the proposed product configuration and may vary by region or final regulatory authorization.", "所示规格为建议产品配置，可能因地区或最终监管许可而有所不同。"],
+  ["Imaging modes", "成像模式"], ["B-mode / M-mode / Color Doppler", "B 模式 / M 模式 / 彩色多普勒"], ["Display", "显示屏"], ["5.5-inch medical-grade touch display", "5.5 英寸医用级触控显示屏"], ["Probe", "探头"], ["Multi-frequency convex array probe", "多频凸阵探头"], ["Frequency range", "频率范围"],
+  ["Battery", "电池"], ["Up to 4 hours of continuous operation", "最长 4 小时连续工作"], ["Connectivity", "连接方式"], ["Wi-Fi 6 / Bluetooth 5.2 / USB-C", "Wi-Fi 6 / 蓝牙 5.2 / USB-C"], ["Data format", "数据格式"], ["DICOM / JPEG / MP4 / structured report", "DICOM / JPEG / MP4 / 结构化报告"], ["Protection", "防护等级"], ["IP54 device enclosure", "设备外壳 IP54"], ["Weight", "重量"], ["Approximately 680 g, excluding probe", "约 680 克，不含探头"], ["Security", "数据安全"], ["Encrypted storage and role-based access", "加密存储与基于角色的访问控制"], ["Operating environment", "工作环境"], ["10–35 °C / 15–80% RH", "10–35 °C / 15–80% 相对湿度"], ["Intended users", "适用人员"], ["Trained healthcare professionals", "经过培训的医疗专业人员"],
+  ["INTENDED SETTINGS", "适用场景"], ["Built for flexible clinical use.", "为灵活的临床应用而设计。"], ["Primary care", "基层医疗"], ["Accessible imaging support for routine assessment and earlier referral decisions.", "为常规评估和更早转诊决策提供便捷的影像支持。"], ["Bedside assessment", "床旁评估"], ["Portable scanning for wards, emergency care and patients with limited mobility.", "为病房、急诊及行动受限患者提供便携式扫描。"], ["Mobile services", "移动医疗"], ["Compact equipment for outreach clinics and care delivered closer to communities.", "紧凑型设备适用于巡回门诊，让医疗服务更贴近社区。"],
+  ["PRODUCT ENQUIRIES", "产品咨询"], ["Bring MiniScope 1.0<br/>into your workflow.", "让微影 1.0<br/>融入您的工作流程。"], ["Talk with the HolyLens team about product configuration, availability and clinical integration.", "与 HolyLens 团队沟通产品配置、供应情况与临床集成方案。"],
+  ["MiniScope 1.0 portable ultrasound system", "微影 1.0 便携式超声系统"], ["Clinician using the MiniScope 1.0 probe and connected workspace", "医务人员使用微影 1.0 探头与互联工作空间"], ["MiniScope 1.0 handheld console and ultrasound probe", "微影 1.0 手持主机与超声探头"],
+  [">AI-assisted<", ">AI 辅助<"], [">Portable<", ">便携设计<"], [">Connected<", ">智能互联<"], ["MiniScope 1.0", "微影 1.0"]
+];
+
 let zhHome = replaceAll(sourceHome, zhCommon);
 let enHome = replaceAll(sourceHome, enCommon);
 let zhProductHtml = replaceAll(sourceProduct, [...zhCommon, ...zhProduct]);
 let enProductHtml = replaceAll(sourceProduct, enCommon);
+let zhMiniScopeHtml = replaceAll(sourceMiniScope, [...zhMiniScope, ...zhCommon, ...zhProduct]);
+let enMiniScopeHtml = replaceAll(sourceMiniScope, enCommon);
 
-for (const [lang, page, html] of [["zh","home",zhHome],["en","home",enHome],["zh","product",zhProductHtml],["en","product",enProductHtml]]) {
+for (const [lang, page, html] of [["zh","home",zhHome],["en","home",enHome],["zh","product",zhProductHtml],["en","product",enProductHtml],["zh","miniscope",zhMiniScopeHtml],["en","miniscope",enMiniScopeHtml]]) {
   let localized = injectLanguageSwitch(html, lang, page);
   const prefix = `/${lang}`;
   localized = localized
+    .replaceAll('href="/product/miniscope-1"', `href="${prefix}/product/miniscope-1/"`)
     .replaceAll('href="/product/"', `href="${prefix}/product/"`)
     .replaceAll('href="/product"', `href="${prefix}/product/"`)
     .replaceAll('href="/"', `href="${prefix}/"`)
     .replaceAll('href="/#', `href="${prefix}/#`);
-  const file = page === "home" ? path.join(site, lang, "index.html") : path.join(site, lang, "product", "index.html");
+  const file = page === "home" ? path.join(site, lang, "index.html") : page === "miniscope" ? path.join(site, lang, "product", "miniscope-1", "index.html") : path.join(site, lang, "product", "index.html");
   await fs.mkdir(path.dirname(file), { recursive: true });
   await fs.writeFile(file, localized, "utf8");
 }

@@ -28,6 +28,7 @@ await fs.rm(out, { recursive: true, force: true });
 await fs.mkdir(out, { recursive: true });
 await exportPage("/", "index.html");
 await exportPage("/product", "product/index.html");
+await exportPage("/product/miniscope-1", "product/miniscope-1/index.html");
 
 let css = await fs.readFile(path.join(root, "app", "globals.css"), "utf8");
 css = css.replace(/^@import\s+["']tailwindcss["'];?\s*/m, "");

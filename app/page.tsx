@@ -213,9 +213,9 @@ export default function Home() {
       <section className="contact" id="contact">
         <div><p className="label">Get in Touch</p><h2>Let’s talk about a<br />healthier tomorrow.</h2></div>
         <div className="contact-grid">
-          <p><b>New York</b><br />175 Varick St, 3rd FL,<br />New York, NY, 10014</p>
+          <p><b>Shanghai</b><br />4F, No. 59 North Yunnan Road,<br />Shanghai 200001</p>
           <p><b>Email</b><br /><a href="mailto:info@holylens.com">info@holylens.com</a><br /><a href="mailto:sales@holylens.com">sales@holylens.com</a></p>
-          <p><b>Phone</b><br />(+1) 609 943 2573<br />(+86) 177 987 765</p>
+          <p><b>Phone</b><br />+86 177 2101 8082</p>
         </div>
       </section>
 
@@ -229,7 +229,7 @@ export default function Home() {
           <div className="footer-links">
             <div><small>Explore</small><a href="#top">Home</a><a href="#about">About Us</a><a href="/product">Product</a><a href="#solution">Solution</a></div>
             <div><small>Technology</small><a href="#solution">Medical AI Platform</a><a href="#solution">Medical AI Chip</a><a href="#demos">Clinical Solutions</a><a href="#cases">Customer Stories</a></div>
-            <div><small>Contact</small><a href="mailto:info@holylens.com">info@holylens.com</a><a href="mailto:sales@holylens.com">sales@holylens.com</a><p>(+1) 609 943 2573<br />(+86) 177 987 765</p></div>
+            <div><small>Contact</small><a href="mailto:info@holylens.com">info@holylens.com</a><a href="mailto:sales@holylens.com">sales@holylens.com</a><p>+86 177 2101 8082</p></div>
           </div>
         </div>
         <div className="footer-bottom"><span>© HolyLens 2026. All rights reserved.</span><span>Intelligence for human health.</span><a href="#top">Back to top ↑</a></div>

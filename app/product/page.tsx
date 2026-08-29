@@ -39,7 +39,7 @@ export default function ProductPage() {
             <div className="catalog-image"><img src={`/images/holylens/${visual}`} alt={name} /></div>
             <div className="catalog-info"><p>{type}</p><h2>{name}</h2><p className="description">{text}</p>
               <ul><li>AI-assisted</li><li>Clinical workflow</li><li>Secure data</li></ul>
-              <a href="mailto:sales@holylens.com">View product information ↗</a>
+              <a href={index === 0 ? "/product/miniscope-1" : "mailto:sales@holylens.com"}>View product information ↗</a>
             </div>
           </article>
         ))}
@@ -65,7 +65,7 @@ export default function ProductPage() {
 
       <section className="contact product-contact">
         <div><p className="label">Product Enquiries</p><h2>Find the right device<br />for your workflow.</h2></div>
-        <div className="contact-grid"><p><b>Email</b><br /><a href="mailto:sales@holylens.com">sales@holylens.com</a></p><p><b>Phone</b><br />(+1) 609 943 2573<br />(+86) 177 987 765</p></div>
+        <div className="contact-grid"><p><b>Email</b><br /><a href="mailto:sales@holylens.com">sales@holylens.com</a></p><p><b>Phone</b><br />+86 177 2101 8082</p></div>
       </section>
 
       <footer><a className="brand" href="/"><Logo /></a><p>AI medical devices for earlier insight and better care.</p><span>© HolyLens 2026</span><a href="#top">Back to top ↑</a></footer>
