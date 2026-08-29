@@ -1,5 +1,6 @@
 import fs from "node:fs/promises";
 import path from "node:path";
+import { productDetailCatalog } from "./product-detail-catalog.mjs";
 
 const root = process.cwd();
 const site = path.join(root, "static-site");
@@ -87,12 +88,12 @@ const enCommon = [
 ];
 
 const zhProduct = [
-  ["MiniScope 1.0", "微影 1.0"], ["MiniScope PRO", "微影专业版"], ["StarScope 1.0", "星影 1.0"], ["TurgoScope 1.0", "声境 1.0"], ["MiniVision 1.0", "微视 1.0"],
+  ["MiniScope 1.0", "微影 1.0"], ["MiniScope PRO", "微影专业版"], ["StarScope 1.0", "星析 1.0"], ["TurgoScope 1.0", "声境 1.0"], ["MiniVision 1.0", "微视 1.0"],
   ["HearScope 1.0", "聆镜 1.0"], ["PressScope 1.0", "压康 1.0"], ["GlucoScope 1.0", "糖衡 1.0"], ["CardioScope 1.0", "心律 1.0"], ["OxyScope 1.0", "氧安 1.0"],
   ["CLINICAL &amp; INSTITUTIONAL", "医院与医疗机构"], ["Products for hospitals and healthcare organizations", "面向医院和医疗机构的产品"], ["Professional devices and AI workspaces designed for clinical teams, high-quality acquisition and dependable medical workflows.", "为临床团队打造的专业设备与 AI 工作空间，支持高质量采集和可靠的医疗工作流程。"],
   ["PERSONAL &amp; FAMILY HEALTH", "个人与家庭健康"], ["Products for individuals and families", "面向个人和家庭的产品"], ["Approachable connected devices that bring everyday health monitoring and clearer personal insights into the home.", "易用的智能互联设备，将日常健康监测和更清晰的个人健康洞察带入家庭。"],
   ["HOLYLENS PRODUCT PORTFOLIO", "HOLYLENS 产品矩阵"], ["Intelligence,<br/>made tangible.", "让智能，<br/>触手可及。"], ["From portable screening devices to professional imaging and clinical software, HolyLens connects advanced hardware with AI built for healthcare.", "从便携式筛查设备到专业影像与临床软件，HolyLens 将先进硬件与医疗 AI 深度连接。"], ["Our Products", "我们的产品"], ["One connected family.<br/>Five ways to see earlier.", "一体化产品家族，<br/>五种更早洞察的方式。"], ["Each HolyLens product transforms complex medical signals into clear, useful clinical information.", "每一款 HolyLens 产品都将复杂的医疗信号转化为清晰、实用的临床信息。"],
-  ["Portable AI Screening", "便携式 AI 筛查"], ["Professional Imaging", "专业医学影像"], ["Advanced Medical Imaging", "先进医学影像"], ["Acoustic Intelligence", "声学智能"], ["Clinical AI Platform", "临床 AI 平台"], ["Compact intelligent imaging for fast, consistent screening at the point of care.", "紧凑型智能影像设备，为诊疗现场提供快速、一致的筛查能力。"], ["Enhanced optics and AI analysis for demanding, high-volume clinical environments.", "增强型光学与 AI 分析，适用于高要求、高通量临床环境。"], ["High-quality acquisition and intelligent risk detection for deeper assessment.", "高质量采集与智能风险检测，支持更深入的临床评估。"], ["Advanced acoustic sensing and machine intelligence for non-invasive insight.", "先进声学感知与机器智能，提供无创临床洞察。"], ["A unified workspace for examinations, AI findings and structured reports.", "统一管理检查、AI 发现与结构化报告的临床工作空间。"],
+  ["Portable AI Screening", "便携式 AI 筛查"], ["Digital Pathology Imaging", "数字病理影像"], ["Advanced Ultrasound Imaging", "先进超声影像"], ["Acoustic Tissue Intelligence", "声学组织智能"], ["Ophthalmic AI Platform", "眼科 AI 平台"], ["Compact intelligent imaging for fast, consistent screening at the point of care.", "紧凑型智能影像设备，为诊疗现场提供快速、一致的筛查能力。"], ["High-resolution tissue imaging and AI-assisted slide review for modern pathology workflows.", "面向现代病理工作流程，提供高分辨率组织成像与 AI 辅助切片查看。"], ["Professional ultrasound acquisition with intelligent guidance and a streamlined clinical console.", "通过智能引导与简洁临床主机，实现专业超声影像采集。"], ["Multichannel acoustic sensing and intelligent tissue assessment for non-invasive insight.", "多通道声学感知与智能组织评估，提供无创临床洞察。"], ["A connected workspace for retinal imaging, AI findings and longitudinal ophthalmic review.", "连接视网膜影像、AI 发现与眼科纵向查看的一体化工作空间。"],
   ["AI Home Auscultation", "AI 家庭听诊"], ["Smart Blood Pressure", "智能血压监测"], ["Smart Glucose Monitoring", "智能血糖监测"], ["Personal ECG Monitoring", "个人心电监测"], ["Blood Oxygen Monitoring", "血氧监测"],
   ["AI-guided heart and lung sound capture for convenient everyday family screening.", "通过 AI 引导采集心肺声音，为家庭日常筛查提供便捷支持。"], ["Comfortable home blood-pressure and pulse monitoring with clear trend tracking.", "舒适完成家庭血压与脉搏监测，并清晰记录长期变化趋势。"], ["Fast everyday glucose checks with simple records that support long-term health management.", "快速完成日常血糖检测，以简明记录支持长期健康管理。"], ["Multi-lead ECG capture at home for reliable rhythm records and easier remote review.", "在家完成多导联心电采集，可靠记录心律并便于远程查看。"], ["Compact fingertip oxygen-saturation and pulse monitoring for daily wellness checks.", "小巧的指夹式血氧与脉率监测设备，满足日常健康检查需要。"],
   ["AI-assisted", "AI 辅助"], ["Clinical workflow", "临床工作流"], ["Home monitoring", "家庭监测"], ["Family health", "家庭健康"], ["Secure data", "安全数据"], ["View product information", "查看产品资料"], ["Request product information", "索取产品资料"], ["ONE HOLYLENS PLATFORM", "统一 HOLYLENS 平台"], ["Devices that work<br/>better together.", "设备互联，<br/>协同更高效。"], ["CAPTURE", "采集"], ["ANALYZE", "分析"], ["REPORT", "报告"], ["CARE", "诊疗"], ["Standardized acquisition, intelligent analysis and structured reporting create a consistent path from examination to clinical action.", "标准化采集、智能分析与结构化报告，构建从检查到临床行动的一致路径。"], ["Product Enquiries", "产品咨询"], ["Find the right device<br/>for your workflow.", "为您的工作流程，<br/>选择合适的设备。"]
@@ -134,8 +135,10 @@ let enMiniScopeHtml = replaceAll(sourceMiniScope, enCommon);
 for (const [lang, page, html] of [["zh","home",zhHome],["en","home",enHome],["zh","product",zhProductHtml],["en","product",enProductHtml],["zh","miniscope",zhMiniScopeHtml],["en","miniscope",enMiniScopeHtml]]) {
   let localized = injectLanguageSwitch(html, lang, page);
   const prefix = `/${lang}`;
+  for (const slug of ["miniscope-1", ...productDetailCatalog.map((product) => product.slug)]) {
+    localized = localized.replaceAll(`href="/product/${slug}"`, `href="${prefix}/product/${slug}/"`);
+  }
   localized = localized
-    .replaceAll('href="/product/miniscope-1"', `href="${prefix}/product/miniscope-1/"`)
     .replaceAll('href="/product/"', `href="${prefix}/product/"`)
     .replaceAll('href="/product"', `href="${prefix}/product/"`)
     .replaceAll('href="/"', `href="${prefix}/"`)
@@ -149,3 +152,4 @@ const redirect = `<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
 await fs.writeFile(path.join(site, "index.html"), redirect, "utf8");
 
 console.log("Chinese and English static sites generated.");
+await import("./generate-product-details.mjs");
