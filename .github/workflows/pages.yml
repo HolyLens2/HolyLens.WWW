@@ -25,17 +25,10 @@ jobs:
         uses: actions/checkout@v4
       - name: Configure Pages
         uses: actions/configure-pages@v5
-      - name: Prepare project Pages paths
-        run: |
-          cp -a static-site _site
-          find _site -type f \( -name '*.html' -o -name '*.css' \) -print0 | xargs -0 sed -i \
-            -e 's|="/|="/HolyLens.WWW/|g' \
-            -e 's|url=/|url=/HolyLens.WWW/|g' \
-            -e 's|url(/|url(/HolyLens.WWW/|g'
       - name: Upload static website
         uses: actions/upload-pages-artifact@v3
         with:
-          path: _site
+          path: static-site
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4

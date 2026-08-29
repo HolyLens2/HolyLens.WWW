@@ -38,5 +38,6 @@ await fs.mkdir(path.join(out, ".vscode"), { recursive: true });
 await fs.writeFile(path.join(out, ".vscode", "extensions.json"), '{"recommendations":["ritwickdey.liveserver"]}\n');
 await fs.writeFile(path.join(out, ".vscode", "settings.json"), '{"liveServer.settings.port":8080,"liveServer.settings.root":"/"}\n');
 await fs.writeFile(path.join(out, "serve.ps1"), 'Set-Location -LiteralPath $PSScriptRoot\npython -m http.server 8080 --bind 127.0.0.1\n');
+await fs.writeFile(path.join(out, "CNAME"), "holylens.com\n");
 
 console.log(`Static site exported to ${out}`);
