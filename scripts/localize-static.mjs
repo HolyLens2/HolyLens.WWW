@@ -150,7 +150,7 @@ for (const [lang, page, html] of [["zh","home",zhHome],["en","home",enHome],["zh
   await fs.writeFile(file, localized, "utf8");
 }
 
-const redirect = `<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="refresh" content="0;url=/zh/"><title>HolyLens</title></head><body><p><a href="/zh/">中文</a> · <a href="/en/">English</a></p></body></html>`;
+const redirect = `<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>HolyLens</title><script>location.replace("/zh/")</script><meta http-equiv="refresh" content="0;url=/zh/"><style>html,body{margin:0;background:#fff}body{visibility:hidden}</style></head><body></body></html>`;
 await fs.writeFile(path.join(site, "index.html"), redirect, "utf8");
 
 console.log("Chinese and English static sites generated.");
