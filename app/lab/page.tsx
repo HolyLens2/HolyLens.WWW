@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./route.css";
 
 export const metadata: Metadata = {
-  title: "神镜实验室 | HolyLens",
+  title: "神镜实验室 | HOLYLENS",
   description: "HolyLens 多模态身体信息采集技术地图。",
 };
 

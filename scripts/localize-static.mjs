@@ -11,7 +11,8 @@ function cleanHtml(html) {
     .replace(/<link\b[^>]*(?:modulepreload|data-rsc-css-href)[^>]*\/?\s*>/gi, "")
     .replace(/<style\b[^>]*data-vinext-fonts[^>]*>[\s\S]*?<\/style>/gi, "")
     .replace(/<!--\s*-->/g, "")
-    .replaceAll('/favicon.svg', '/favicon.png')
+    .replaceAll('/favicon.svg', '/favicon.png?v=2')
+    .replace(/(<title>[^<]*)HolyLens/g, "$1HOLYLENS")
     .replace("</head>", '<link rel="stylesheet" href="/styles.css"/></head>');
 }
 
@@ -83,7 +84,7 @@ const enCommon = [
   ["应用场景 / APPLICATIONS", "APPLICATIONS"], ["覆盖诊断、治疗、<br/>科研与管理。", "Across diagnosis, treatment,<br/>research and operations."], ["让一套智能底座服务完整医疗体系。", "One intelligent foundation for the entire healthcare system."],
   ["医学影像 AI 诊断", "Medical Imaging AI Diagnosis"], ["支持 CT、MRI、X 光、超声等多模态影像的自动化分析", "Automated multimodal analysis across CT, MRI, X-ray and ultrasound"], ["肺结节检测 · 骨折识别 · 肿瘤分割 · 病灶追踪", "Lung nodule detection · Fracture recognition · Tumor segmentation · Lesion tracking"], ["病理智能分析", "Intelligent Pathology Analysis"], ["数字化病理切片的全景扫描与 AI 辅助诊断", "Whole-slide scanning and AI-assisted diagnosis for digital pathology"], ["癌变检测 · 分级评估 · 免疫组化 · 预后预测", "Cancer detection · Grading · Immunohistochemistry · Prognosis"], ["临床决策支持", "Clinical Decision Support"], ["融合千万级病例，提供实时个性化诊疗建议", "Real-time personalized recommendations informed by millions of cases"], ["智能问诊 · 用药推荐 · 风险评估 · 治疗方案", "Smart consultation · Medication · Risk assessment · Treatment plans"], ["药物研发加速", "Accelerated Drug Discovery"], ["利用大模型预测分子活性，缩短筛选周期", "Foundation models predict molecular activity and shorten screening cycles"], ["靶点发现 · 分子设计 · 临床试验 · 副作用预测", "Target discovery · Molecular design · Clinical trials · Side-effect prediction"], ["智慧医院管理", "Smart Hospital Operations"], ["全院级 AI 赋能，提升运营效率与服务质量", "Hospital-wide AI improves operational efficiency and service quality"], ["智能导诊 · 排班优化 · 质控管理 · 耗材管理", "Smart triage · Scheduling · Quality control · Supply management"], ["科研算力平台", "Research Compute Platform"], ["为医学科研提供高性能 AI 训练与推理算力", "High-performance AI training and inference for medical research"], ["基因组学 · 蛋白质分析 · 临床数据 · 多中心研究", "Genomics · Protein analysis · Clinical data · Multi-center studies"],
   ["演示与案例", "DEMOS & CASES"], ["看见真实医疗场景中的 AI。", "See AI at work in real healthcare."], ["实时 AI 影像诊断 — 肺部 CT 自动分析", "Real-time AI Imaging — Automated Lung CT Analysis"], ["基于 HolyLens-N3 芯片的实时推理演示", "Real-time inference powered by HolyLens-N3"], ["数字化病理 AI 辅助 — 癌细胞精准识别", "Digital Pathology AI — Precise Cancer Cell Detection"], ["边缘设备上的高效病理分析", "Efficient pathology analysis on edge devices"], ["手术 AI 导航 — 实时器官追踪与预警", "Surgical AI Navigation — Real-time Organ Tracking"], ["超低延迟的边缘 AI 推理", "Ultra-low-latency edge AI inference"], [">演示<", ">DEMO<"],
-  ["HolyLens｜看见疾病，在它发生之前", "HolyLens | Detect disease before it strikes"], ["HolyLens 将人工智能与先进医学影像、声学技术深度融合，为医疗机构提供更早、更可靠的临床洞察。", "HolyLens combines AI with advanced medical imaging and acoustic technologies to deliver earlier, more reliable clinical insight."],
+  ["HOLYLENS｜看见疾病，在它发生之前", "HOLYLENS | Detect disease before it strikes"], ["HolyLens 将人工智能与先进医学影像、声学技术深度融合，为医疗机构提供更早、更可靠的临床洞察。", "HolyLens combines AI with advanced medical imaging and acoustic technologies to deliver earlier, more reliable clinical insight."],
   ["HolyLens 便携式手持超声检查设备", "HolyLens portable handheld ultrasound scanner"],
   ["Meet HolyLens-N3：面向医疗 AI 的高效Neural Network AcceleratorArchitecture解析", "Meet HolyLens-N3: An Efficient Neural Network Accelerator for Medical AI"], ["AI 驱动的基层医疗机构智能Imaging Diagnosis系统成功覆盖 500+ 县域医院", "AI-powered imaging diagnosis deployed across 500+ county hospitals"], ["AI Imaging Diagnosis系统<br/>覆盖 500+ 县域医院。", "AI imaging diagnosis<br/>reaches 500+ county hospitals."], ["AI Imaging Diagnosis系统 覆盖 500+ 县域医院。", "AI imaging diagnosis reaches 500+ county hospitals."], ["HolyLens 的 AI Imaging Diagnosis平台帮助我们实现了基层医疗机构诊断能力的质的提升，将优质诊断能力带到了县域医院。", "HolyLens has transformed diagnostic capacity in primary care and brought high-quality diagnosis to county hospitals."], ["张明远", "Mingyuan Zhang"],
   ["&lt; 15W 超低Power", "&lt; 15W ultra-low power"], ["Support CT、MRI、X 光、超声等多模态影像的自动化分析", "Automated multimodal analysis across CT, MRI, X-ray and ultrasound"], ["Drug Discovery加速", "Accelerated Drug Discovery"], ["科研Compute平台", "Research Compute Platform"], ["为医学科研提供高性能 AI 训练与推理Compute", "High-performance AI training and inference for medical research"],
@@ -129,7 +130,7 @@ const zhMiniScope = [
 ];
 
 const zhContact = [
-  ["Contact HolyLens | Project Enquiry", "联系 HolyLens｜需求咨询"],
+  ["Contact HOLYLENS | Project Enquiry", "联系 HOLYLENS｜需求咨询"],
   ["Tell HolyLens about your clinical, product or partnership requirements.", "向 HolyLens 提交临床、产品或合作需求。"],
   ["PROJECT ENQUIRY", "需求咨询"], ["Tell us what<br/>you need.", "告诉我们，<br/>您的需求。"],
   ["Whether you are evaluating a medical device, planning a clinical workflow or exploring a technology partnership, share the essentials and our team will follow up.", "无论您正在评估医疗设备、规划临床工作流程，还是探索技术合作，都可以告诉我们核心需求，我们的团队将及时与您联系。"],
@@ -162,6 +163,7 @@ let enContactHtml = replaceAll(sourceContact, enCommon);
 
 for (const [lang, page, html] of [["zh","home",zhHome],["en","home",enHome],["zh","product",zhProductHtml],["en","product",enProductHtml],["zh","miniscope",zhMiniScopeHtml],["en","miniscope",enMiniScopeHtml],["zh","contact",zhContactHtml],["en","contact",enContactHtml]]) {
   let localized = injectLanguageSwitch(html, lang, page);
+  localized = localized.replace(/(<title>[^<]*)HolyLens/g, "$1HOLYLENS");
   if (lang === "zh") {
     localized = localized.replace(/<nav aria-label="Main navigation">[\s\S]*?<\/nav>/, (navigation) =>
       navigation.replaceAll(">联系我们<", ">联系<"),
@@ -186,7 +188,7 @@ for (const [lang, page, html] of [["zh","home",zhHome],["en","home",enHome],["zh
   await fs.writeFile(file, localized, "utf8");
 }
 
-const redirect = `<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>HolyLens</title><script>location.replace("/zh/")</script><meta http-equiv="refresh" content="0;url=/zh/"><style>html,body{margin:0;background:#fff}body{visibility:hidden}</style></head><body></body></html>`;
+const redirect = `<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>HOLYLENS</title><link rel="icon" type="image/png" sizes="120x120" href="/favicon.png?v=2"><link rel="shortcut icon" href="/favicon.png?v=2"><script>location.replace("/zh/")</script><meta http-equiv="refresh" content="0;url=/zh/"><style>html,body{margin:0;background:#fff}body{visibility:hidden}</style></head><body></body></html>`;
 await fs.writeFile(path.join(site, "index.html"), redirect, "utf8");
 const contactRedirectDir = path.join(site, "contact");
 await fs.mkdir(contactRedirectDir, { recursive: true });

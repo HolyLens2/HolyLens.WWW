@@ -14,7 +14,8 @@ async function exportPage(route, destination) {
     .replace(/<link\b[^>]*(?:modulepreload|data-rsc-css-href)[^>]*\/?\s*>/gi, "")
     .replace(/<style\b[^>]*data-vinext-fonts[^>]*>[\s\S]*?<\/style>/gi, "")
     .replace(/<!--\s*-->/g, "")
-    .replaceAll('/favicon.svg', '/favicon.png')
+    .replaceAll('/favicon.svg', '/favicon.png?v=2')
+    .replace(/(<title>[^<]*)HolyLens/g, "$1HOLYLENS")
     .replace("</head>", '<link rel="stylesheet" href="/styles.css"/></head>')
     .replaceAll('href="/product"', 'href="/product/"')
     .replaceAll('href="/"', 'href="/"');

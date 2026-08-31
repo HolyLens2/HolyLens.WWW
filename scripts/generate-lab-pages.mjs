@@ -174,7 +174,7 @@ const translations = [
   ["血糖", "Blood Glucose"],
   ["组织硬度和形变分布", "Tissue stiffness and deformation distribution"],
   ["X光与 CT", "X-ray and CT"],
-  ["HL.AI.Lab · 采集技术", "HL.AI.Lab · Sensing Technology"]
+  ["HOLYLENS Lab · 采集技术", "HOLYLENS Lab · Sensing Technology"]
 ];
 
 function nav(lang) {

@@ -6,9 +6,13 @@ const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "HolyLens｜看见疾病，在它发生之前",
+  title: "HOLYLENS｜看见疾病，在它发生之前",
   description: "HolyLens 将人工智能与先进医学影像、声学技术深度融合，为医疗机构提供更早、更可靠的临床洞察。",
-  icons: { icon: "/favicon.png", shortcut: "/favicon.png" },
+  icons: {
+    icon: [{ url: "/favicon.png?v=2", type: "image/png", sizes: "120x120" }],
+    shortcut: "/favicon.png?v=2",
+    apple: "/favicon.png?v=2",
+  },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

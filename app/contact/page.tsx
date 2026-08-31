@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Contact HolyLens | Project Enquiry",
+  title: "Contact HOLYLENS | Project Enquiry",
   description: "Tell HolyLens about your clinical, product or partnership requirements.",
 };
 
