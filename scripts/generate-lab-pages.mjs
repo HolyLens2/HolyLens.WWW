@@ -86,6 +86,7 @@ const translations = [
   ["在新标签页打开 HL.AI.PCG", "Open HL.AI.PCG in a new tab"],
   ["打开 HL.AI.VAG →", "Open HL.AI.VAG →"],
   ["在新标签页打开 HL.AI.VAG", "Open HL.AI.VAG in a new tab"],
+  ["在新标签页打开项目", "Open project in a new tab"],
   ["电子听诊", "Electronic Auscultation"],
   ["耳镜 / 皮肤镜 / 热像", "Otoscope / Dermatoscope / Thermal"],
   ["便携超声", "Portable Ultrasound"],
