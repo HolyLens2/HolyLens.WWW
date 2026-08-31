@@ -21,7 +21,7 @@ const specifications = [
 ];
 
 function Logo() {
-  return <img className="official-logo" src="/images/holylens/logo-hd.png" alt="HolyLens" />;
+  return <img className="official-logo" src="/images/holylens/logo-hd.png" alt="HOLYLENS" />;
 }
 
 export default function MiniScopeDetailPage() {
@@ -32,9 +32,9 @@ export default function MiniScopeDetailPage() {
         <a className="brand" href="/"><Logo /></a>
         <nav aria-label="Main navigation">
           <a href="/">Home</a><a className="active" href="/product">Product</a><a href="/lab">Lab</a>
-          <a href="/#solution">Solution</a><a href="/#contact">Contact</a>
+          <a href="/#solution">Solution</a><a href="/contact">Contact</a>
         </nav>
-        <a className="mobile-contact" href="/#contact">Contact</a>
+        <a className="mobile-contact" href="/contact">Contact</a>
       </header>
 
       <section className="detail-hero">

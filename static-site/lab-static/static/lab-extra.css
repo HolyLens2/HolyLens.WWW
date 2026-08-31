@@ -11,3 +11,20 @@
 .lab-main{max-width:none;margin:-34px var(--page-gutter) 0;padding-left:0;padding-right:0}
 .fusion-domain{margin-left:0;margin-right:0}
 @media(max-width:700px){.lab-body{--page-gutter:23px}.lab-main{padding-left:0;padding-right:0}.fusion-domain{padding-left:16px;padding-right:16px}}
+
+/* White page canvas and the same footer system used on the main website. */
+.lab-body{background:#fff}
+.lab-site-footer{padding:78px var(--page-gutter) 28px;background:#061b36;color:#91a8c3;font-family:"Noto Sans SC","Microsoft YaHei",sans-serif;font-size:13px}
+.lab-footer-main{display:grid;grid-template-columns:minmax(290px,.8fr) 1.35fr;gap:9vw;padding-bottom:62px}
+.lab-footer-brand img{display:block;width:150px;height:auto;filter:brightness(0) invert(1)}
+.lab-footer-brand h2{margin:34px 0 18px;color:#fff;font-size:clamp(34px,3.1vw,46px);line-height:1.04;letter-spacing:-.04em}
+.lab-footer-brand p{max-width:360px;line-height:1.7}
+.lab-footer-links{display:grid;grid-template-columns:repeat(3,1fr);gap:42px;padding-top:8px}
+.lab-footer-links>div{display:flex;flex-direction:column;align-items:flex-start;gap:15px}
+.lab-footer-links small{margin-bottom:8px;color:#55c7ee;font-size:15px;font-weight:700;letter-spacing:.04em}
+.lab-footer-links a{color:#d9e7f5;line-height:1.4;text-decoration:none;transition:color .2s ease}
+.lab-footer-links a:hover{color:#55c7ee}
+.lab-footer-bottom{display:grid;grid-template-columns:.9fr 1.5fr auto;align-items:center;gap:34px;padding-top:24px;border-top:1px solid rgba(255,255,255,.13);font-size:12px}
+.lab-footer-bottom span:nth-child(2){line-height:1.75}.lab-footer-bottom a{color:#d9e7f5;text-decoration:none}.lab-footer-bottom a:hover{color:#55c7ee}
+@media(max-width:900px){.lab-footer-main{grid-template-columns:1fr;gap:52px}.lab-footer-links{gap:28px}.lab-footer-bottom{grid-template-columns:1fr auto}.lab-footer-bottom span:nth-child(2){display:block;grid-column:1/-1}}
+@media(max-width:560px){.lab-site-footer{padding:62px 23px 24px}.lab-footer-links{grid-template-columns:1fr 1fr}.lab-footer-links>div:last-child{grid-column:1/-1;padding-top:18px;border-top:1px solid rgba(255,255,255,.1)}.lab-footer-bottom{grid-template-columns:1fr;gap:14px}.lab-footer-brand h2{font-size:34px}}

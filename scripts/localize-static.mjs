@@ -15,10 +15,11 @@ function cleanHtml(html) {
     .replace("</head>", '<link rel="stylesheet" href="/styles.css"/></head>');
 }
 
-const [sourceHome, sourceProduct, sourceMiniScope] = await Promise.all([
+const [sourceHome, sourceProduct, sourceMiniScope, sourceContact] = await Promise.all([
   fetch("http://localhost:3000/").then((response) => response.text()).then(cleanHtml),
   fetch("http://localhost:3000/product").then((response) => response.text()).then(cleanHtml),
   fetch("http://localhost:3000/product/miniscope-1").then((response) => response.text()).then(cleanHtml),
+  fetch("http://localhost:3000/contact").then((response) => response.text()).then(cleanHtml),
 ]);
 
 function replaceAll(input, replacements) {
@@ -30,7 +31,7 @@ function replaceAll(input, replacements) {
 function injectLanguageSwitch(html, lang, page) {
   const other = lang === "zh" ? "EN" : "CN";
   const otherLang = lang === "zh" ? "en" : "zh";
-  const suffix = page === "product" ? "product/" : page === "miniscope" ? "product/miniscope-1/" : "";
+  const suffix = page === "product" ? "product/" : page === "miniscope" ? "product/miniscope-1/" : page === "contact" ? "contact/" : "";
   return html.replace("</header>", `<a class="language-switch" href="/${otherLang}/${suffix}">${other}</a></header>`);
 }
 
@@ -127,15 +128,46 @@ const zhMiniScope = [
   [">AI-assisted<", ">AI 辅助<"], [">Portable<", ">便携设计<"], [">Connected<", ">智能互联<"], ["MiniScope 1.0", "微影 1.0"]
 ];
 
+const zhContact = [
+  ["Contact HolyLens | Project Enquiry", "联系 HolyLens｜需求咨询"],
+  ["Tell HolyLens about your clinical, product or partnership requirements.", "向 HolyLens 提交临床、产品或合作需求。"],
+  ["PROJECT ENQUIRY", "需求咨询"], ["Tell us what<br/>you need.", "告诉我们，<br/>您的需求。"],
+  ["Whether you are evaluating a medical device, planning a clinical workflow or exploring a technology partnership, share the essentials and our team will follow up.", "无论您正在评估医疗设备、规划临床工作流程，还是探索技术合作，都可以告诉我们核心需求，我们的团队将及时与您联系。"],
+  ["HOW WE CAN HELP", "我们如何协助"], ["Start with your<br/>real-world need.", "从真实场景与<br/>实际需求出发。"],
+  ["Provide as much context as you can. It helps us connect you with the right product, clinical or technical specialist.", "请尽可能提供项目背景，便于我们安排合适的产品、临床或技术专家与您沟通。"],
+  ["Describe the setting", "说明应用场景"], ["Hospital, clinic, research team, distributor or home-health project.", "医院、诊所、科研团队、经销合作或家庭健康项目。"],
+  ["Clarify the objective", "明确项目目标"], ["Product evaluation, integration, procurement, research or partnership.", "产品评估、系统集成、采购、科研或合作。"],
+  ["Receive a response", "获得团队回复"], ["Our team will review your request and contact you by email.", "我们的团队将审核您的需求并通过电子邮件联系您。"],
+  ["DIRECT CONTACT", "直接联系"], ["REQUIREMENT FORM", "需求咨询表"], ["* Required fields", "* 为必填项"],
+  [">Name *<", ">姓名 *<"], ["Your name", "您的姓名"], [">Organization *<", ">机构名称 *<"], ["Hospital, company or institution", "医院、企业或机构"],
+  [">Work email *<", ">工作邮箱 *<"], ["name@organization.com", "name@organization.com"], [">Phone<", ">联系电话<"], ["Country code and number", "国家代码和电话号码"],
+  [">Country / Region *<", ">国家或地区 *<"], ["Country or region", "国家或地区"], [">Area of interest *<", ">关注方向 *<"], ["Select an area", "请选择方向"],
+  [">Medical devices<", ">医疗设备<"], [">Clinical AI platform<", ">临床 AI 平台<"], [">Medical AI chip<", ">医疗 AI 芯片<"], [">Research collaboration<", ">科研合作<"], [">Distribution partnership<", ">经销合作<"], [">Other<", ">其他<"],
+  [">Project stage *<", ">项目阶段 *<"], ["Select a stage", "请选择阶段"], [">Early exploration<", ">前期探索<"], [">Technical evaluation<", ">技术评估<"], [">Clinical validation<", ">临床验证<"], [">Procurement planning<", ">采购规划<"], [">Deployment and integration<", ">部署与集成<"],
+  [">Expected timeline<", ">预计时间<"], [">Not decided<", ">尚未确定<"], [">Within 3 months<", ">3 个月内<"], [">3–6 months<", ">3–6 个月<"], [">6–12 months<", ">6–12 个月<"], [">More than 12 months<", ">12 个月以上<"],
+  [">Requirement details *<", ">需求说明 *<"], ["Please describe the clinical setting, intended users, desired functions, quantity or integration requirements.", "请说明临床场景、目标用户、所需功能、数量或系统集成要求。"],
+  ["I agree that HolyLens may use this information to respond to my enquiry. *", "我同意 HolyLens 使用这些信息回复本次咨询。*"],
+  ["Submitting opens your email application with the completed enquiry. You can review it before sending.", "提交后将打开您的邮件应用并自动带入咨询内容，您可以确认后发送。"],
+  ["Submit enquiry", "提交咨询"]
+];
+
 let zhHome = replaceAll(sourceHome, zhCommon);
 let enHome = replaceAll(sourceHome, enCommon);
 let zhProductHtml = replaceAll(sourceProduct, [...zhCommon, ...zhProduct]);
 let enProductHtml = replaceAll(sourceProduct, enCommon);
 let zhMiniScopeHtml = replaceAll(sourceMiniScope, [...zhMiniScope, ...zhCommon, ...zhProduct]);
 let enMiniScopeHtml = replaceAll(sourceMiniScope, enCommon);
+let zhContactHtml = replaceAll(sourceContact, [...zhContact, ...zhCommon]);
+let enContactHtml = replaceAll(sourceContact, enCommon);
 
-for (const [lang, page, html] of [["zh","home",zhHome],["en","home",enHome],["zh","product",zhProductHtml],["en","product",enProductHtml],["zh","miniscope",zhMiniScopeHtml],["en","miniscope",enMiniScopeHtml]]) {
+for (const [lang, page, html] of [["zh","home",zhHome],["en","home",enHome],["zh","product",zhProductHtml],["en","product",enProductHtml],["zh","miniscope",zhMiniScopeHtml],["en","miniscope",enMiniScopeHtml],["zh","contact",zhContactHtml],["en","contact",enContactHtml]]) {
   let localized = injectLanguageSwitch(html, lang, page);
+  if (lang === "zh") {
+    localized = localized.replace(/<nav aria-label="Main navigation">[\s\S]*?<\/nav>/, (navigation) =>
+      navigation.replaceAll(">联系我们<", ">联系<"),
+    );
+    localized = localized.replace(/(<a class="mobile-contact"[^>]*>)联系我们(<\/a>)/g, "$1联系$2");
+  }
   const prefix = `/${lang}`;
   for (const slug of ["miniscope-1", ...productDetailCatalog.map((product) => product.slug)]) {
     localized = localized.replaceAll(`href="/product/${slug}"`, `href="${prefix}/product/${slug}/"`);
@@ -144,17 +176,21 @@ for (const [lang, page, html] of [["zh","home",zhHome],["en","home",enHome],["zh
     .replaceAll('href="/lab.html"', `href="${prefix}/lab/"`)
     .replaceAll('href="/lab/"', `href="${prefix}/lab/"`)
     .replaceAll('href="/lab"', `href="${prefix}/lab/"`)
+    .replaceAll('href="/contact"', `href="${prefix}/contact/"`)
     .replaceAll('href="/product/"', `href="${prefix}/product/"`)
     .replaceAll('href="/product"', `href="${prefix}/product/"`)
     .replaceAll('href="/"', `href="${prefix}/"`)
     .replaceAll('href="/#', `href="${prefix}/#`);
-  const file = page === "home" ? path.join(site, lang, "index.html") : page === "miniscope" ? path.join(site, lang, "product", "miniscope-1", "index.html") : path.join(site, lang, "product", "index.html");
+  const file = page === "home" ? path.join(site, lang, "index.html") : page === "miniscope" ? path.join(site, lang, "product", "miniscope-1", "index.html") : page === "contact" ? path.join(site, lang, "contact", "index.html") : path.join(site, lang, "product", "index.html");
   await fs.mkdir(path.dirname(file), { recursive: true });
   await fs.writeFile(file, localized, "utf8");
 }
 
 const redirect = `<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>HolyLens</title><script>location.replace("/zh/")</script><meta http-equiv="refresh" content="0;url=/zh/"><style>html,body{margin:0;background:#fff}body{visibility:hidden}</style></head><body></body></html>`;
 await fs.writeFile(path.join(site, "index.html"), redirect, "utf8");
+const contactRedirectDir = path.join(site, "contact");
+await fs.mkdir(contactRedirectDir, { recursive: true });
+await fs.writeFile(path.join(contactRedirectDir, "index.html"), '<!doctype html><html><head><meta charset="utf-8"><script>location.replace("/zh/contact/")</script><meta http-equiv="refresh" content="0;url=/zh/contact/"><style>body{visibility:hidden}</style></head><body></body></html>', "utf8");
 
 console.log("Chinese and English static sites generated.");
 await import("./generate-product-details.mjs");

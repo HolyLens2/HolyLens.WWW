@@ -180,13 +180,19 @@ const translations = [
 function nav(lang) {
   const zh = lang === "zh";
   const other = zh ? "en" : "zh";
-  return `<nav class="lab-nav"><a class="official-brand" href="/${lang}/" aria-label="HolyLens home"><img class="lab-logo" src="/lab-static/static/holylens-logo.png" alt="HolyLens"></a><div class="official-links"><a href="/${lang}/">${zh ? "首页" : "Home"}</a><a href="/${lang}/product/">${zh ? "产品" : "Product"}</a><a class="active" href="/${lang}/lab/">${zh ? "实验室" : "Lab"}</a><a href="/${lang}/#solution">${zh ? "解决方案" : "Solution"}</a><a href="/${lang}/#contact">${zh ? "联系我们" : "Contact"}</a></div><a class="official-language desktop-language" href="/${other}/lab/">${zh ? "EN" : "CN"} ↗</a><div class="official-mobile-links"><a href="/${lang}/#contact">${zh ? "联系我们" : "Contact"}</a><a class="official-language" href="/${other}/lab/">${zh ? "EN" : "CN"} ↗</a></div></nav>`;
+  return `<nav class="lab-nav"><a class="official-brand" href="/${lang}/" aria-label="HOLYLENS home"><img class="lab-logo" src="/images/holylens/logo-hd.png" alt="HOLYLENS"></a><div class="official-links"><a href="/${lang}/">${zh ? "首页" : "Home"}</a><a href="/${lang}/product/">${zh ? "产品" : "Product"}</a><a class="active" href="/${lang}/lab/">${zh ? "实验室" : "Lab"}</a><a href="/${lang}/#solution">${zh ? "解决方案" : "Solution"}</a><a href="/${lang}/contact/">${zh ? "联系" : "Contact"}</a></div><a class="official-language desktop-language" href="/${other}/lab/">${zh ? "EN" : "CN"} ↗</a><div class="official-mobile-links"><a href="/${lang}/contact/">${zh ? "联系" : "Contact"}</a><a class="official-language" href="/${other}/lab/">${zh ? "EN" : "CN"} ↗</a></div></nav>`;
+}
+
+function footer(lang) {
+  const zh = lang === "zh";
+  return `<footer class="lab-site-footer"><div class="lab-footer-main"><div class="lab-footer-brand"><a href="/${lang}/"><img src="/images/holylens/logo-hd.png" alt="HOLYLENS"></a><h2>${zh ? "更早看见，<br>更好守护。" : "See earlier.<br>Care better."}</h2><p>${zh ? "以 AI 医疗设备带来更早洞察与更优质医疗。" : "AI medical devices for earlier insight and better care."}</p></div><div class="lab-footer-links"><div><small>${zh ? "网站导航" : "Explore"}</small><a href="/${lang}/">${zh ? "首页" : "Home"}</a><a href="/${lang}/product/">${zh ? "产品" : "Product"}</a><a href="/${lang}/lab/">${zh ? "实验室" : "Lab"}</a><a href="/${lang}/#solution">${zh ? "解决方案" : "Solution"}</a></div><div><small>${zh ? "核心技术" : "Technology"}</small><a href="/${lang}/#solution">${zh ? "AI 医疗大模型平台" : "Medical AI Platform"}</a><a href="/${lang}/#solution">${zh ? "AI 医疗专用芯片" : "Medical AI Chip"}</a><a href="/${lang}/#demos">${zh ? "临床解决方案" : "Clinical Solutions"}</a></div><div><small>${zh ? "联系我们" : "Contact"}</small><a href="mailto:info@holylens.com">info@holylens.com</a><a href="mailto:sales@holylens.com">sales@holylens.com</a></div></div></div><div class="lab-footer-bottom"><span>${zh ? "神镜（上海）医疗设备有限公司" : "HolyLens (Shanghai) Medical Devices Co., Ltd."}</span><span>${zh ? "地址：上海市黄浦区云南北路59号六合大厦4层" : "Address: 4F, Liuhe Building, No. 59 North Yunnan Road, Huangpu District, Shanghai"}</span><a href="#top">${zh ? "返回顶部" : "Back to top"} ↑</a></div></footer>`;
 }
 
 function normalize(html, lang) {
   let output = html
     .replaceAll("./static/", "/lab-static/static/")
-    .replace(/<nav class="lab-nav">[\s\S]*?<\/nav>/, nav(lang));
+    .replace(/<nav class="lab-nav">[\s\S]*?<\/nav>/, nav(lang))
+    .replace(/<footer class="lab-site-footer">[\s\S]*?<\/footer>/, footer(lang));
   if (lang === "en") {
     output = output.replace('lang="zh-CN"', 'lang="en"').replace(/data-search="[^"]*"/g, 'data-search=""');
     for (const [from, to] of [...translations].sort((a, b) => b[0].length - a[0].length)) output = output.replaceAll(from, to);

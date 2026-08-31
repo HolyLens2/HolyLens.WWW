@@ -46,14 +46,14 @@ export default function Home() {
     <main id="top">
       <div className="topbar" />
       <header className="nav">
-        <a className="brand" href="#top" aria-label="HolyLens home">
-          <img className="official-logo" src="/images/holylens/logo-hd.png" alt="HolyLens" />
+        <a className="brand" href="#top" aria-label="HOLYLENS home">
+          <img className="official-logo" src="/images/holylens/logo-hd.png" alt="HOLYLENS" />
         </a>
         <nav aria-label="Main navigation">
           <a href="#top">Home</a>
-          <a href="/product">Product</a><a href="/lab">Lab</a><a href="#solution">Solution</a><a href="#contact">Contact</a>
+          <a href="/product">Product</a><a href="/lab">Lab</a><a href="#solution">Solution</a><a href="/contact">Contact</a>
         </nav>
-        <a className="mobile-contact" href="mailto:info@holylens.com">Contact</a>
+        <a className="mobile-contact" href="/contact">Contact</a>
       </header>
 
       <section className="hero">
@@ -221,7 +221,7 @@ export default function Home() {
       <footer className="site-footer">
         <div className="footer-main">
           <div className="footer-brand">
-            <a className="brand" href="#top"><img className="official-logo" src="/images/holylens/logo-hd.png" alt="HolyLens" /></a>
+            <a className="brand" href="#top"><img className="official-logo" src="/images/holylens/logo-hd.png" alt="HOLYLENS" /></a>
             <h2>See earlier.<br />Care better.</h2>
             <p>AI medical devices for earlier insight and better care.</p>
           </div>
