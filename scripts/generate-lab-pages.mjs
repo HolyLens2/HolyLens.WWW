@@ -83,6 +83,7 @@ const translations = [
   ["放射性示踪", "Radioactive Tracer"],
   ["神镜实验室", "HolyLens Lab"],
   ["打开 HL.AI.PCG →", "Open HL.AI.PCG →"],
+  ["在新标签页打开 HL.AI.PCG", "Open HL.AI.PCG in a new tab"],
   ["电子听诊", "Electronic Auscultation"],
   ["耳镜 / 皮肤镜 / 热像", "Otoscope / Dermatoscope / Thermal"],
   ["便携超声", "Portable Ultrasound"],
