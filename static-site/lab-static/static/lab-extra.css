@@ -5,27 +5,9 @@
 @media(max-width:900px){.lab-title{display:none}.official-links{gap:16px}.official-links a{font-size:14px}}
 @media(max-width:700px){.official-topbar{height:10px}.lab-nav{height:78px;padding:0 6vw}.lab-logo{width:124px;height:48px}.official-links,.desktop-language{display:none}.official-mobile-links{display:flex;margin-left:auto}.official-mobile-links a,.lab-nav .official-mobile-links a:first-child{display:block;font-size:16px}.official-language{margin-left:0!important}}
 
-/* Wide desktop layout: use the available canvas while keeping readable card widths. */
-@media (min-width:1440px){
-  .lab-main{max-width:1360px;padding-left:32px;padding-right:32px}
-  .lab-hero{padding-left:max(72px,calc((100vw - 1296px)/2));padding-right:max(72px,calc((100vw - 1296px)/2))}
-  .lab-summary{padding-left:32px;padding-right:32px;grid-template-columns:repeat(3,minmax(180px,220px)) 1fr}
-  .lab-toolbar{padding-top:32px;padding-bottom:28px}
-  .tech-grid,.fusion-grid{gap:16px}
-  .tech-grid article{padding:26px;min-height:286px}
-  .fusion-card{padding:24px}
-}
-
-@media (min-width:1720px){
-  .lab-main{max-width:1560px;padding-left:36px;padding-right:36px}
-  .lab-hero{padding-left:max(108px,calc((100vw - 1488px)/2));padding-right:max(108px,calc((100vw - 1488px)/2))}
-  .lab-summary{padding-left:36px;padding-right:36px;grid-template-columns:repeat(3,minmax(200px,240px)) 1fr}
-  .tech-grid,.fusion-grid{gap:20px}
-  .tech-grid article{padding:28px;min-height:292px}
-  .domain-head{margin-bottom:22px}
-}
-
-@media (min-width:2300px){
-  .lab-main{max-width:1720px}
-  .lab-hero{padding-left:max(160px,calc((100vw - 1648px)/2));padding-right:max(160px,calc((100vw - 1648px)/2))}
-}
+/* Match the 1320px content container used across the main HolyLens site. */
+.lab-body{--page-gutter:max(6vw,calc((100vw - 1320px)/2))}
+.lab-nav,.lab-hero,.lab-footer{padding-left:var(--page-gutter);padding-right:var(--page-gutter)}
+.lab-main{max-width:none;margin:-34px var(--page-gutter) 0;padding-left:0;padding-right:0}
+.fusion-domain{margin-left:0;margin-right:0}
+@media(max-width:700px){.lab-body{--page-gutter:23px}.lab-main{padding-left:0;padding-right:0}.fusion-domain{padding-left:16px;padding-right:16px}}
