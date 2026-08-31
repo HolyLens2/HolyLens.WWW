@@ -48,7 +48,7 @@ function renderPage(template, product, lang, prefix) {
   html = sectionReplace(html, "detail-workflow", `<section class="detail-workflow"><p class="detail-section-label">${l.workflow}</p><h2>${localized(product.workflowTitle, lang)}</h2><div class="workflow-steps">${workflow}</div></section>`);
   html = sectionReplace(html, "detail-specs", `<section class="detail-specs" id="specifications"><div><p class="detail-section-label">${l.specs}</p><h2>${name}<br/>${lang === "zh" ? "技术规格。" : "technical profile."}</h2><p>${l.note}</p></div><dl>${specs}</dl></section>`);
   html = sectionReplace(html, "detail-use-cases", `<section class="detail-use-cases"><div><p class="detail-section-label">${l.settings}</p><h2>${localized(product.settingsTitle, lang)}</h2></div><div class="use-case-grid">${settings}</div></section>`);
-  html = sectionReplace(html, "detail-cta", `<section class="detail-cta"><div><p class="detail-section-label">${l.enquiries}</p><h2>${localized(product.ctaTitle, lang)}</h2></div><div><p>${l.cta}</p><a href="mailto:sales@holylens.com?subject=${mailSubject}">sales@holylens.com ↗</a><span>+86 177 2101 8082</span></div></section>`);
+  html = sectionReplace(html, "detail-cta", `<section class="detail-cta"><div><p class="detail-section-label">${l.enquiries}</p><h2>${localized(product.ctaTitle, lang)}</h2></div><div><p>${l.cta}</p><a href="mailto:sales@holylens.com?subject=${mailSubject}">sales@holylens.com ↗</a></div></section>`);
   return html;
 }
 

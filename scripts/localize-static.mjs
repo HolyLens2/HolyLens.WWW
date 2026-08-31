@@ -60,7 +60,7 @@ const zhCommon = [
   ["Connected Care", "协作诊疗"], ["Multidisciplinary care, connected by intelligence", "以智能连接多学科诊疗"], ["Shared insight helps clinical teams make faster, better-informed decisions around every patient.", "共享洞察帮助医疗团队围绕每位患者，更快做出信息充分的诊疗决策。"],
   ["Community Health", "基层健康"], ["Earlier screening, closer to every community", "让更早筛查走近每个社区"], ["Portable intelligent devices bring dependable screening and follow-up closer to families.", "便携智能设备把可靠筛查与持续随访带到社区和家庭身边。"],
   ["Get in Touch", "联系我们"], ["Let’s talk about a<br/>healthier tomorrow.", "共同探讨一个<br/>更健康的明天。"],
-  ["HolyLens (Shanghai) Medical Devices Co., Ltd.", "神镜（上海）医疗设备有限公司"], ["Address: 4F, Liuhe Building, No. 59 North Yunnan Road, Huangpu District, Shanghai", "地址：上海市黄浦区云南北路59号六合大厦4层"], ["Postal Code: 200001", "邮编：200001"],
+  ["HolyLens (Shanghai) Medical Devices Co., Ltd.", "神镜（上海）医疗设备有限公司"], ["Address: 4F, Liuhe Building, No. 59 North Yunnan Road, Huangpu District, Shanghai", "地址：上海市黄浦区云南北路59号六合大厦4层"],
   ["Shanghai", "上海"], ["Email", "邮箱"], ["Phone", "电话"], ["Back to top", "返回顶部"],
   ["AI medical devices for earlier insight and better care.", "以 AI 医疗设备带来更早洞察与更优质医疗。"],
   ["See earlier.<br/>Care better.", "更早看见，<br/>更好守护。"], ["Start a conversation", "与我们联系"], [">Explore<", ">网站导航<"], [">Technology<", ">核心技术<"],
@@ -155,3 +155,4 @@ await fs.writeFile(path.join(site, "index.html"), redirect, "utf8");
 
 console.log("Chinese and English static sites generated.");
 await import("./generate-product-details.mjs");
+await import("./optimize-static-images.mjs");
