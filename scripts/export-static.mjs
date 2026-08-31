@@ -24,8 +24,10 @@ async function exportPage(route, destination) {
   await fs.writeFile(target, html, "utf8");
 }
 
-await fs.rm(out, { recursive: true, force: true });
 await fs.mkdir(out, { recursive: true });
+for (const entry of await fs.readdir(out)) {
+  await fs.rm(path.join(out, entry), { recursive: true, force: true });
+}
 await exportPage("/", "index.html");
 await exportPage("/product", "product/index.html");
 await exportPage("/product/miniscope-1", "product/miniscope-1/index.html");
@@ -34,6 +36,7 @@ let css = await fs.readFile(path.join(root, "app", "globals.css"), "utf8");
 css = css.replace(/^@import\s+["']tailwindcss["'];?\s*/m, "");
 await fs.writeFile(path.join(out, "styles.css"), css, "utf8");
 await fs.cp(path.join(root, "public", "images"), path.join(out, "images"), { recursive: true });
+await fs.cp(path.join(root, "public", "lab-static", "static"), path.join(out, "lab-static", "static"), { recursive: true });
 await fs.copyFile(path.join(root, "public", "favicon.png"), path.join(out, "favicon.png"));
 await fs.mkdir(path.join(out, ".vscode"), { recursive: true });
 await fs.writeFile(path.join(out, ".vscode", "extensions.json"), '{"recommendations":["ritwickdey.liveserver"]}\n');

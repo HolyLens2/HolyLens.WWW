@@ -25,7 +25,7 @@ export default function ProductPage() {
       <header className="nav">
         <a className="brand" href="/"><Logo /></a>
         <nav aria-label="Main navigation">
-          <a href="/">Home</a><a href="/#about">About Us</a><a className="active" href="/product">Product</a>
+          <a href="/">Home</a><a href="/#about">About Us</a><a className="active" href="/product">Product</a><a href="/lab">Lab</a>
           <a href="/#solution">Solution</a><a href="/#contact">Contact</a>
         </nav>
         <a className="mobile-contact" href="/#contact">Contact</a>

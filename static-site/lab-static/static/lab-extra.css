@@ -1,0 +1,31 @@
+.tech-grid article.pcg-card{cursor:pointer}.tech-grid article.pcg-card:hover{border-color:var(--brand);box-shadow:0 14px 34px #146ce52b}.tech-grid article.pcg-card:focus-visible{outline:3px solid #59c7ff;outline-offset:3px}
+.tech-grid article:not(.pcg-card),.fusion-grid article{filter:grayscale(1);opacity:.48;background:#eef3f8;border-color:#d6e0ec;box-shadow:none}.tech-grid article:not(.pcg-card):hover{transform:none;box-shadow:none;border-color:#d6e0ec}.tech-grid article:not(.pcg-card) .tech-icon,.tech-grid article:not(.pcg-card) .tag{opacity:.7}.fusion-grid article{background:#ffffff08}
+.official-topbar{height:23px;background:#31afe0}.lab-nav{height:98px;position:sticky;top:0;z-index:30;justify-content:space-between;padding:0 6vw;background:#fff;border:0;box-shadow:none;font-family:"Noto Sans SC","Microsoft YaHei",sans-serif}.lab-nav a{margin-left:0}.official-brand{display:flex;align-items:center}.lab-logo{position:static;width:155px;height:60px;object-fit:contain;display:block;filter:none;opacity:1}.lab-title{position:absolute;left:50%;transform:translateX(-50%);color:#152640;font-size:19px;font-weight:600;letter-spacing:.12em;white-space:nowrap}.official-links{margin-left:auto;display:flex;align-items:center;gap:32px}.official-links a,.official-mobile-links a{color:#152640;text-decoration:none;font-size:16px;white-space:nowrap}.official-links a.active{color:#146ce5}.official-links a:hover,.official-mobile-links a:hover{color:#146ce5}.official-language{margin-left:26px!important;padding:6px 0 6px 20px!important;border-left:1px solid #dfe4ea;font-size:13px!important;font-weight:650;color:#092754!important;text-decoration:none;white-space:nowrap}.official-mobile-links{display:none;align-items:center;gap:26px}
+@media(max-width:1180px){.official-links{gap:20px}.lab-title{font-size:17px;letter-spacing:.08em}}
+@media(max-width:900px){.lab-title{display:none}.official-links{gap:16px}.official-links a{font-size:14px}}
+@media(max-width:700px){.official-topbar{height:10px}.lab-nav{height:78px;padding:0 6vw}.lab-logo{width:124px;height:48px}.official-links,.desktop-language{display:none}.official-mobile-links{display:flex;margin-left:auto}.official-mobile-links a,.lab-nav .official-mobile-links a:first-child{display:block;font-size:16px}.official-language{margin-left:0!important}}
+
+/* Wide desktop layout: use the available canvas while keeping readable card widths. */
+@media (min-width:1440px){
+  .lab-main{max-width:1360px;padding-left:32px;padding-right:32px}
+  .lab-hero{padding-left:max(72px,calc((100vw - 1296px)/2));padding-right:max(72px,calc((100vw - 1296px)/2))}
+  .lab-summary{padding-left:32px;padding-right:32px;grid-template-columns:repeat(3,minmax(180px,220px)) 1fr}
+  .lab-toolbar{padding-top:32px;padding-bottom:28px}
+  .tech-grid,.fusion-grid{gap:16px}
+  .tech-grid article{padding:26px;min-height:286px}
+  .fusion-card{padding:24px}
+}
+
+@media (min-width:1720px){
+  .lab-main{max-width:1560px;padding-left:36px;padding-right:36px}
+  .lab-hero{padding-left:max(108px,calc((100vw - 1488px)/2));padding-right:max(108px,calc((100vw - 1488px)/2))}
+  .lab-summary{padding-left:36px;padding-right:36px;grid-template-columns:repeat(3,minmax(200px,240px)) 1fr}
+  .tech-grid,.fusion-grid{gap:20px}
+  .tech-grid article{padding:28px;min-height:292px}
+  .domain-head{margin-bottom:22px}
+}
+
+@media (min-width:2300px){
+  .lab-main{max-width:1720px}
+  .lab-hero{padding-left:max(160px,calc((100vw - 1648px)/2));padding-right:max(160px,calc((100vw - 1648px)/2))}
+}
