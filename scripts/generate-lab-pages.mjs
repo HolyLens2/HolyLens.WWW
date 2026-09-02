@@ -198,7 +198,10 @@ function normalize(html, lang) {
     .replace(/<nav class="lab-nav">[\s\S]*?<\/nav>/, nav(lang))
     .replace(/<footer class="lab-site-footer">[\s\S]*?<\/footer>/, footer(lang));
   if (lang === "en") {
-    output = output.replace('lang="zh-CN"', 'lang="en"').replace(/data-search="[^"]*"/g, 'data-search=""');
+    output = output
+      .replace('lang="zh-CN"', 'lang="en"')
+      .replace(/data-search="[^"]*"/g, 'data-search=""')
+      .replace(/(https:\/\/[a-z0-9-]+\.holylens\.com)\/zh\//g, "$1/en/");
     for (const [from, to] of [...translations].sort((a, b) => b[0].length - a[0].length)) output = output.replaceAll(from, to);
     if (/[\u3400-\u9fff]/.test(output)) {
       const remaining = [...new Set(output.match(/[\u3400-\u9fff][^<>"']*/g) || [])];
