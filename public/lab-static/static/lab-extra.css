@@ -28,3 +28,29 @@
 .lab-footer-bottom span:nth-child(2){line-height:1.75}.lab-footer-bottom a{color:#d9e7f5;text-decoration:none}.lab-footer-bottom a:hover{color:#55c7ee}
 @media(max-width:900px){.lab-footer-main{grid-template-columns:1fr;gap:52px}.lab-footer-links{gap:28px}.lab-footer-bottom{grid-template-columns:1fr auto}.lab-footer-bottom span:nth-child(2){display:block;grid-column:1/-1}}
 @media(max-width:560px){.lab-site-footer{padding:62px 23px 24px}.lab-footer-links{grid-template-columns:1fr 1fr}.lab-footer-links>div:last-child{grid-column:1/-1;padding-top:18px;border-top:1px solid rgba(255,255,255,.1)}.lab-footer-bottom{grid-template-columns:1fr;gap:14px}.lab-footer-brand h2{font-size:34px}}
+
+/* Complete mobile navigation, shared visually with the main website. */
+.lab-nav>.mobile-menu{display:none}
+.mobile-menu>summary{list-style:none}
+.mobile-menu>summary::-webkit-details-marker{display:none}
+.mobile-menu-toggle{width:42px;height:42px;padding:0;border:1px solid #d9e3f2;background:#fff;display:grid;place-content:center;gap:5px;cursor:pointer}
+.mobile-menu-toggle span{display:block;width:18px;height:1.5px;background:#092754;transition:transform .2s ease,opacity .2s ease}
+.mobile-menu[open] .mobile-menu-toggle span:first-child{transform:translateY(6.5px) rotate(45deg)}
+.mobile-menu[open] .mobile-menu-toggle span:nth-child(2){opacity:0}
+.mobile-menu[open] .mobile-menu-toggle span:last-child{transform:translateY(-6.5px) rotate(-45deg)}
+.lab-nav .mobile-menu-panel{position:absolute;top:100%;left:0;right:0;padding:12px var(--page-gutter) 22px;background:#fff;border-top:1px solid #d9e3f2;box-shadow:0 18px 35px rgba(9,39,84,.12)}
+.lab-nav .mobile-menu-panel a{display:flex;align-items:center;min-height:48px;border-bottom:1px solid #e7edf5;color:#092754;font-size:16px;font-weight:600;text-decoration:none}
+.lab-nav .mobile-menu-panel a.active,.lab-nav .mobile-menu-panel a:hover{color:#146ce5}
+@media(max-width:700px){
+  .lab-nav>.official-mobile-links{display:none}
+  .lab-nav>.desktop-language{display:block;margin-left:auto!important}
+  .lab-nav>.mobile-menu{display:block;position:static;margin-left:16px}
+  .lab-nav .mobile-menu-panel{display:grid;gap:0}
+}
+@media(max-width:560px){
+  .lab-site-footer,.lab-footer-main,.lab-footer-links,.lab-footer-bottom{width:100%;max-width:100%;min-width:0}
+  .lab-footer-links{grid-template-columns:1fr}
+  .lab-footer-links>div,.lab-footer-links>div:last-child{grid-column:auto;padding-top:18px;border-top:1px solid rgba(255,255,255,.1)}
+  .lab-footer-links>div:first-child{padding-top:0;border-top:0}
+  .lab-footer-links a,.lab-footer-bottom span{max-width:100%;overflow-wrap:anywhere}
+}

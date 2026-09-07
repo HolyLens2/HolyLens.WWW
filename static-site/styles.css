@@ -153,3 +153,64 @@ body{background:#fff}
 .detail-cta{padding:100px var(--page-gutter);display:grid;grid-template-columns:1.15fr .85fr;gap:9vw;align-items:center;background:var(--sky)}.detail-cta h2{margin-top:20px}.detail-cta>div:last-child{display:flex;flex-direction:column;align-items:flex-start}.detail-cta>div:last-child p{margin:0 0 26px;color:var(--muted);font-size:17px;line-height:1.75}.detail-cta a{color:var(--blue);font-size:20px;font-weight:750;border-bottom:1px solid var(--blue);padding-bottom:7px}.detail-cta span{margin-top:18px;color:var(--navy);font-weight:650}
 @media(max-width:900px){.detail-hero{grid-template-columns:1fr}.detail-hero-copy{padding:65px 40px}.detail-hero-image{height:470px}.detail-intro{grid-template-columns:1fr;gap:28px;padding:90px 40px}.detail-intro>div{grid-template-columns:1fr;gap:22px}.detail-features{grid-template-columns:1fr}.detail-feature-image{min-height:0;height:auto;aspect-ratio:4/5;padding:32px 24px 32px 40px}.detail-feature-image img{width:min(88%,500px);max-height:88%}.detail-feature-copy{padding:80px 40px}.detail-structure{grid-template-columns:1fr;padding:90px 40px}.detail-structure-image{height:auto;aspect-ratio:1.7}.workflow-steps{grid-template-columns:1fr 1fr}.detail-specs{grid-template-columns:1fr;padding:90px 40px}.detail-use-cases{padding:90px 40px}.detail-use-cases>div:first-child{grid-template-columns:1fr;gap:22px}.detail-cta{grid-template-columns:1fr;padding:90px 40px}}
 @media(max-width:560px){.detail-hero-copy{padding:48px 23px 54px}.detail-back{margin-bottom:36px}.detail-hero h1{font-size:50px}.detail-lead{font-size:17px}.detail-primary{width:100%;justify-content:space-between}.detail-hero-image{height:300px}.detail-hero-image.detail-hero-wide{padding:20px}.detail-hero-image.detail-hero-wide img{height:220px}.detail-intro,.detail-feature-copy,.detail-structure,.detail-workflow,.detail-specs,.detail-use-cases,.detail-cta{padding:72px 23px}.detail-intro h2,.detail-features h2,.detail-structure h2,.detail-workflow h2,.detail-specs h2,.detail-use-cases h2,.detail-cta h2{font-size:40px}.detail-structure h2 .nowrap{font-size:34px}.detail-feature-image{height:auto;min-height:0;aspect-ratio:4/5;padding-left:20px}.detail-structure li{grid-template-columns:1fr}.detail-structure-image{height:auto;aspect-ratio:1.7}.workflow-steps{grid-template-columns:1fr}.workflow-steps article{min-height:210px}.detail-specs dl{grid-template-columns:1fr}.use-case-grid{grid-template-columns:1fr}.use-case-grid article{min-height:190px}.detail-cta a{font-size:17px}}
+
+/* Complete mobile navigation for the official website. */
+.mobile-menu{display:none}
+.mobile-menu>summary{list-style:none}
+.mobile-menu>summary::-webkit-details-marker{display:none}
+.mobile-menu-toggle{width:42px;height:42px;padding:0;border:1px solid var(--line);background:#fff;display:grid;place-content:center;gap:5px;cursor:pointer}
+.mobile-menu-toggle span{display:block;width:18px;height:1.5px;background:var(--navy);transition:transform .2s ease,opacity .2s ease}
+.mobile-menu[open] .mobile-menu-toggle span:first-child{transform:translateY(6.5px) rotate(45deg)}
+.mobile-menu[open] .mobile-menu-toggle span:nth-child(2){opacity:0}
+.mobile-menu[open] .mobile-menu-toggle span:last-child{transform:translateY(-6.5px) rotate(-45deg)}
+.mobile-menu-panel{position:absolute;top:100%;left:0;right:0;padding:12px var(--page-gutter) 22px;background:#fff;border-top:1px solid var(--line);box-shadow:0 18px 35px rgba(9,39,84,.12)}
+.mobile-menu-panel a{display:flex;align-items:center;min-height:48px;border-bottom:1px solid #e7edf5;color:var(--navy);font-size:16px;font-weight:600}
+.mobile-menu-panel a.active,.mobile-menu-panel a:hover{color:var(--blue)}
+@media(max-width:900px){
+  .nav>nav{display:none}
+  .nav>.mobile-contact{display:none}
+  .nav>.language-switch{order:2;margin-left:auto}
+  .nav>.mobile-menu{display:block;position:static;order:3;margin-left:16px}
+  .nav .mobile-menu-panel{display:grid;gap:0}
+}
+@media(max-width:420px){
+  .nav>.language-switch{margin-left:auto;padding-left:14px}
+  .nav>.mobile-menu{margin-left:12px}
+}
+
+/* Let the homepage hero follow its content when the device visual is hidden. */
+@media(max-width:900px){
+  .hero{min-height:0;height:auto;padding-top:72px;padding-bottom:40px}
+  .about{padding-top:48px}
+}
+@media(max-width:560px){
+  .hero{min-height:0;padding-top:52px;padding-bottom:30px}
+  .about{padding-top:28px}
+}
+
+/* On compact home layouts, allow headings to wrap at the available width. */
+@media(max-width:900px){
+  .hero h1 br,
+  .about h2 br,
+  .service-section .section-title h2 br,
+  .numbers h2 br,
+  .source-products h2 br,
+  .case-study h2 br,
+  .evolution>h2 br,
+  .chip-specs h2 br,
+  .applications h2 br,
+  .guidelines>h2 br,
+  .news h2 br{display:none}
+}
+@media(max-width:560px){
+  .hero h1{font-size:42px;line-height:1.05}
+}
+
+/* Keep the compact footer full-width and genuinely single-column. */
+@media(max-width:560px){
+  .site-footer,.footer-main,.footer-links,.footer-bottom{width:100%;max-width:100%;min-width:0}
+  .footer-links{grid-template-columns:1fr}
+  .footer-links>div,.footer-links>div:last-child{grid-column:auto;padding-top:18px;border-top:1px solid rgba(255,255,255,.1)}
+  .footer-links>div:first-child{padding-top:0;border-top:0}
+  .footer-links a,.footer-bottom span{max-width:100%;overflow-wrap:anywhere}
+}

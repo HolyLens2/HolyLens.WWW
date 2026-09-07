@@ -197,6 +197,9 @@ function normalize(html, lang) {
     .replaceAll("./static/", "/lab-static/static/")
     .replace(/<nav class="lab-nav">[\s\S]*?<\/nav>/, nav(lang))
     .replace(/<footer class="lab-site-footer">[\s\S]*?<\/footer>/, footer(lang));
+  if (!output.includes('/mobile-nav.js')) {
+    output = output.replace("</body>", '<script src="/mobile-nav.js"></script></body>');
+  }
   if (lang === "en") {
     output = output
       .replace('lang="zh-CN"', 'lang="en"')

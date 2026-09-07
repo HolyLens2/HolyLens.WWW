@@ -13,7 +13,8 @@ function cleanHtml(html) {
     .replace(/<!--\s*-->/g, "")
     .replaceAll('/favicon.svg', '/favicon.png?v=2')
     .replace(/(<title>[^<]*)HolyLens/g, "$1HOLYLENS")
-    .replace("</head>", '<link rel="stylesheet" href="/styles.css"/></head>');
+    .replace("</head>", '<link rel="stylesheet" href="/styles.css"/></head>')
+    .replace("</body>", '<script src="/mobile-nav.js"></script></body>');
 }
 
 const [sourceHome, sourceProduct, sourceMiniScope, sourceContact] = await Promise.all([
@@ -190,6 +191,7 @@ for (const [lang, page, html] of [["zh","home",zhHome],["en","home",enHome],["zh
 
 const redirect = `<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>HOLYLENS</title><link rel="icon" type="image/png" sizes="120x120" href="/favicon.png?v=2"><link rel="shortcut icon" href="/favicon.png?v=2"><script>location.replace("/zh/")</script><meta http-equiv="refresh" content="0;url=/zh/"><style>html,body{margin:0;background:#fff}body{visibility:hidden}</style></head><body></body></html>`;
 await fs.writeFile(path.join(site, "index.html"), redirect, "utf8");
+await fs.copyFile(path.join(root, "public", "mobile-nav.js"), path.join(site, "mobile-nav.js"));
 const contactRedirectDir = path.join(site, "contact");
 await fs.mkdir(contactRedirectDir, { recursive: true });
 await fs.writeFile(path.join(contactRedirectDir, "index.html"), '<!doctype html><html><head><meta charset="utf-8"><script>location.replace("/zh/contact/")</script><meta http-equiv="refresh" content="0;url=/zh/contact/"><style>body{visibility:hidden}</style></head><body></body></html>', "utf8");

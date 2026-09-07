@@ -84,7 +84,7 @@ export default function Home() {
             <li>✓ We take a closer look</li>
             <li>✓ Built for practical clinical care</li>
           </ul>
-          <a className="text-link" href="#contact">Let’s Talk ↗</a>
+          <a className="text-link" href="/contact">Let’s Talk ↗</a>
         </div>
       </section>
 
@@ -98,7 +98,7 @@ export default function Home() {
           {services.map(([id, title, text, visual], index) => (
             <article className={index === 0 ? "service-feature" : "service-compact"} key={id}>
               <div className="service-visual"><img className="service-photo" src={`/images/holylens/${visual}`} alt={title} /></div>
-              <div className="service-content"><h3>{title}</h3><p>{text}</p><a href="#contact">Read More <b>↗</b></a></div>
+              <div className="service-content"><h3>{title}</h3><p>{text}</p><a href="/contact">Read More <b>↗</b></a></div>
             </article>
           ))}
         </div>
@@ -137,7 +137,7 @@ export default function Home() {
       <section className="updates">
         <p className="label">LATEST / 最新动态</p>
         <div className="update-grid">
-          <article><small>AWARDS</small><h3>HolyLens 荣获 2026 全球医疗 AI 创新大奖，引领芯智一体化技术新方向</h3><a href="#contact">了解更多 →</a></article>
+          <article><small>AWARDS</small><h3>HolyLens 荣获 2026 全球医疗 AI 创新大奖，引领芯智一体化技术新方向</h3><a href="/contact">了解更多 →</a></article>
           <article><small>WEBINAR</small><h3>Meet HolyLens-N3：面向医疗 AI 的高效神经网络加速器架构解析</h3><p>2026 年 6 月 15 日 · 线上直播</p></article>
           <article><small>CASE STUDY</small><h3>AI 驱动的基层医疗机构智能影像诊断系统成功覆盖 500+ 县域医院</h3><a href="#cases">阅读案例 →</a></article>
         </div>
@@ -205,16 +205,8 @@ export default function Home() {
         <div className="post-grid">
           {posts.map((post, i) => <article className={i === 0 ? "post-featured" : "post-compact"} key={post.title}>
             <div className="post-image"><img src={`/images/holylens/${post.image}`} alt={post.title} /></div>
-            <div className="post-content"><small>{post.category}</small><h3>{post.title}</h3><p>{post.text}</p><a href="#contact">Read More →</a></div>
+            <div className="post-content"><small>{post.category}</small><h3>{post.title}</h3><p>{post.text}</p><a href="/contact">Read More →</a></div>
           </article>)}
-        </div>
-      </section>
-
-      <section className="contact" id="contact">
-        <div><p className="label">Get in Touch</p><h2>Let’s talk about a<br />healthier tomorrow.</h2></div>
-        <div className="contact-grid">
-          <p><b>Shanghai</b><br />4F, No. 59 North Yunnan Road,<br />Shanghai 200001</p>
-          <p><b>Email</b><br /><a href="mailto:info@holylens.com">info@holylens.com</a><br /><a href="mailto:sales@holylens.com">sales@holylens.com</a></p>
         </div>
       </section>
 

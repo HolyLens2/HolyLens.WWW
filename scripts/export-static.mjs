@@ -17,6 +17,7 @@ async function exportPage(route, destination) {
     .replaceAll('/favicon.svg', '/favicon.png?v=2')
     .replace(/(<title>[^<]*)HolyLens/g, "$1HOLYLENS")
     .replace("</head>", '<link rel="stylesheet" href="/styles.css"/></head>')
+    .replace("</body>", '<script src="/mobile-nav.js"></script></body>')
     .replaceAll('href="/product"', 'href="/product/"')
     .replaceAll('href="/"', 'href="/"');
 
@@ -40,6 +41,7 @@ await fs.writeFile(path.join(out, "styles.css"), css, "utf8");
 await fs.cp(path.join(root, "public", "images"), path.join(out, "images"), { recursive: true });
 await fs.cp(path.join(root, "public", "lab-static", "static"), path.join(out, "lab-static", "static"), { recursive: true });
 await fs.copyFile(path.join(root, "public", "favicon.png"), path.join(out, "favicon.png"));
+await fs.copyFile(path.join(root, "public", "mobile-nav.js"), path.join(out, "mobile-nav.js"));
 await fs.mkdir(path.join(out, ".vscode"), { recursive: true });
 await fs.writeFile(path.join(out, ".vscode", "extensions.json"), '{"recommendations":["ritwickdey.liveserver"]}\n');
 await fs.writeFile(path.join(out, ".vscode", "settings.json"), '{"liveServer.settings.port":8080,"liveServer.settings.root":"/"}\n');
