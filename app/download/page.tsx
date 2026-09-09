@@ -6,7 +6,7 @@ export const metadata: Metadata = { title: "HOLYLENS | 下载与插件安装", d
 export function DownloadContent({ english = false }: { english?: boolean }) {
   const root = english ? "/en" : "/zh";
   const text = (zh: string, en: string) => english ? en : zh;
-  const prompt = text("请安装我提供的 holylens-pcg-0.2.0-remote.zip：解压插件，注册到我的个人插件市场并安装。保留远程服务 https://service.holylens.com/mcp，无需配置本地 Node.js。", "Install the holylens-pcg-0.2.0-remote.zip file I provided: extract it, register it in my personal plugin marketplace, and install it. Keep the remote server https://service.holylens.com/mcp. No local Node.js setup is needed.");
+  const prompt = text("请安装我提供的 holylens-pcg-0.2.0-remote.zip：解压插件，注册到我的个人插件市场并安装。", "Install the holylens-pcg-0.2.0-remote.zip file I provided: extract it, register it in my personal plugin marketplace, and install it.");
   return <main className="download-page" id="top">
     <div className="topbar" />
     <header className="nav"><a className="brand" href={`${root}/`}><img className="official-logo" src="/images/holylens/logo-hd.png" alt="HOLYLENS" /></a><nav aria-label={text("主导航", "Main navigation")}><a href={`${root}/`}>{text("首页", "Home")}</a><a href={`${root}/product/`}>{text("产品", "Product")}</a><a href={`${root}/lab/`}>{text("实验室", "Lab")}</a><a className="active" aria-current="page" href={`${root}/download/`}>{text("下载", "Download")}</a><a href={`${root}/#solution`}>{text("解决方案", "Solution")}</a><a href={`${root}/contact/`}>{text("联系", "Contact")}</a></nav><a className="download-language" href={english ? "/zh/download/" : "/en/download/"} lang={english ? "zh-CN" : "en"}>{english ? "中文" : "EN"} ↗</a></header>
