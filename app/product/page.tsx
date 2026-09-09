@@ -28,7 +28,7 @@ export default function ProductPage() {
         <a className="brand" href="/"><Logo /></a>
         <nav aria-label="Main navigation">
           <a href="/">Home</a><a className="active" href="/product">Product</a><a href="/lab">Lab</a><a href="/download">Download</a>
-          <a href="/#solution">Solution</a><a href="/contact">Contact</a>
+          <a href="/solution/">Solution</a><a href="/contact">Contact</a>
         </nav>
         <a className="mobile-contact" href="/contact">Contact</a>
       </header>
@@ -79,8 +79,8 @@ export default function ProductPage() {
             <p>AI medical devices for earlier insight and better care.</p>
           </div>
           <div className="footer-links">
-            <div><small>Explore</small><a href="/">Home</a><a href="/#about">About Us</a><a href="/product">Product</a><a href="/#solution">Solution</a></div>
-            <div><small>Technology</small><a href="/#solution">Medical AI Platform</a><a href="/#solution">Medical AI Chip</a><a href="/#demos">Clinical Solutions</a></div>
+            <div><small>Explore</small><a href="/">Home</a><a href="/#about">About Us</a><a href="/product">Product</a><a href="/solution/">Solution</a></div>
+            <div><small>Technology</small><a href="/solution/">Medical AI Platform</a><a href="/solution/">Medical AI Chip</a><a href="/#demos">Clinical Solutions</a></div>
             <div><small>Contact</small><a href="mailto:info@holylens.com">info@holylens.com</a><a href="mailto:sales@holylens.com">sales@holylens.com</a></div>
           </div>
         </div>

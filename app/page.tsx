@@ -51,7 +51,7 @@ export default function Home() {
         </a>
         <nav aria-label="Main navigation">
           <a href="#top">Home</a>
-          <a href="/product">Product</a><a href="/lab">Lab</a><a href="/download">Download</a><a href="#solution">Solution</a><a href="/contact">Contact</a>
+          <a href="/product">Product</a><a href="/lab">Lab</a><a href="/download">Download</a><a href="/solution/">Solution</a><a href="/contact">Contact</a>
         </nav>
         <a className="mobile-contact" href="/contact">Contact</a>
       </header>
@@ -61,7 +61,7 @@ export default function Home() {
           <p className="kicker">| Your Wellness, Our Unwavering Commitment</p>
           <h1>We detect<br />disease before<br />it strikes.</h1>
           <p>HolyLens is a global innovator in AI medical devices, combining AI with advanced imaging and acoustic technologies.</p>
-          <a className="button" href="#solution">More Services <span>››</span></a>
+          <a className="button" href="/solution/">More Services <span>››</span></a>
         </div>
         <div className="device-scene" aria-label="HolyLens medical device">
           <img className="hero-photo" src="/images/holylens/hero-portable-ultrasound-transparent-v4.png" alt="HolyLens 便携式手持超声检查设备" />
@@ -218,8 +218,8 @@ export default function Home() {
             <p>AI medical devices for earlier insight and better care.</p>
           </div>
           <div className="footer-links">
-            <div><small>Explore</small><a href="#top">Home</a><a href="#about">About Us</a><a href="/product">Product</a><a href="#solution">Solution</a></div>
-            <div><small>Technology</small><a href="#solution">Medical AI Platform</a><a href="#solution">Medical AI Chip</a><a href="#demos">Clinical Solutions</a><a href="#cases">Customer Stories</a></div>
+            <div><small>Explore</small><a href="#top">Home</a><a href="#about">About Us</a><a href="/product">Product</a><a href="/solution/">Solution</a></div>
+            <div><small>Technology</small><a href="/solution/">Medical AI Platform</a><a href="/solution/">Medical AI Chip</a><a href="#demos">Clinical Solutions</a><a href="#cases">Customer Stories</a></div>
             <div><small>Contact</small><a href="mailto:info@holylens.com">info@holylens.com</a><a href="mailto:sales@holylens.com">sales@holylens.com</a></div>
           </div>
         </div>

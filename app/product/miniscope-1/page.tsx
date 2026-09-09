@@ -32,7 +32,7 @@ export default function MiniScopeDetailPage() {
         <a className="brand" href="/"><Logo /></a>
         <nav aria-label="Main navigation">
           <a href="/">Home</a><a className="active" href="/product">Product</a><a href="/lab">Lab</a><a href="/download">Download</a>
-          <a href="/#solution">Solution</a><a href="/contact">Contact</a>
+          <a href="/solution/">Solution</a><a href="/contact">Contact</a>
         </nav>
         <a className="mobile-contact" href="/contact">Contact</a>
       </header>
@@ -86,7 +86,7 @@ export default function MiniScopeDetailPage() {
       <section className="detail-cta"><div><p className="detail-section-label">PRODUCT ENQUIRIES</p><h2>Bring MiniScope 1.0<br />into your workflow.</h2></div><div><p>Talk with the HolyLens team about product configuration, availability and clinical integration.</p><a href="mailto:sales@holylens.com?subject=MiniScope%201.0%20enquiry">sales@holylens.com ↗</a></div></section>
 
       <footer className="site-footer">
-        <div className="footer-main"><div className="footer-brand"><a className="brand" href="#top"><Logo /></a><h2>See earlier.<br />Care better.</h2><p>AI medical devices for earlier insight and better care.</p></div><div className="footer-links"><div><small>Explore</small><a href="/">Home</a><a href="/#about">About Us</a><a href="/product">Product</a><a href="/#solution">Solution</a></div><div><small>Technology</small><a href="/#solution">Medical AI Platform</a><a href="/#solution">Medical AI Chip</a><a href="/#demos">Clinical Solutions</a></div><div><small>Contact</small><a href="mailto:info@holylens.com">info@holylens.com</a><a href="mailto:sales@holylens.com">sales@holylens.com</a></div></div></div>
+        <div className="footer-main"><div className="footer-brand"><a className="brand" href="#top"><Logo /></a><h2>See earlier.<br />Care better.</h2><p>AI medical devices for earlier insight and better care.</p></div><div className="footer-links"><div><small>Explore</small><a href="/">Home</a><a href="/#about">About Us</a><a href="/product">Product</a><a href="/solution/">Solution</a></div><div><small>Technology</small><a href="/solution/">Medical AI Platform</a><a href="/solution/">Medical AI Chip</a><a href="/#demos">Clinical Solutions</a></div><div><small>Contact</small><a href="mailto:info@holylens.com">info@holylens.com</a><a href="mailto:sales@holylens.com">sales@holylens.com</a></div></div></div>
         <div className="footer-bottom"><span>HolyLens (Shanghai) Medical Devices Co., Ltd.</span><span>Address: 4F, Liuhe Building, No. 59 North Yunnan Road, Huangpu District, Shanghai</span><a href="#top">Back to top ↑</a></div>
       </footer>
     </main>
