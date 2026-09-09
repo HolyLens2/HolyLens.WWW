@@ -1,3 +1,5 @@
+import ProductHero from "./product-hero";
+import "./product-hero.css";
 const products = [
   ["MiniScope 1.0", "Portable AI Screening", "Compact intelligent imaging for fast, consistent screening at the point of care.", "product-miniscope-1-solid-wide.png", "miniscope-1"],
   ["MiniScope PRO", "Digital Pathology Imaging", "High-resolution tissue imaging and AI-assisted slide review for modern pathology workflows.", "product-miniscope-pro-solid-wide.png", "miniscope-pro"],
@@ -31,7 +33,8 @@ export default function ProductPage() {
         <a className="mobile-contact" href="/contact">Contact</a>
       </header>
 
-      <section className="product-catalog" aria-label="HolyLens product portfolio">
+      <ProductHero />
+      <section id="product-list" className="product-catalog" aria-label="HolyLens product portfolio">
         <div className="catalog-heading"><p>CLINICAL &amp; INSTITUTIONAL</p><h1>Products for hospitals and healthcare organizations</h1><span>Professional devices and AI workspaces designed for clinical teams, high-quality acquisition and dependable medical workflows.</span></div>
         {products.map(([name, type, text, visual, slug], index) => (
           <article className="catalog-row" key={name}>
