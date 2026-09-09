@@ -51,7 +51,7 @@ export default function Home() {
         </a>
         <nav aria-label="Main navigation">
           <a href="#top">Home</a>
-          <a href="/product">Product</a><a href="/lab">Lab</a><a href="#solution">Solution</a><a href="/contact">Contact</a>
+          <a href="/product">Product</a><a href="/lab">Lab</a><a href="/download">Download</a><a href="#solution">Solution</a><a href="/contact">Contact</a>
         </nav>
         <a className="mobile-contact" href="/contact">Contact</a>
       </header>
