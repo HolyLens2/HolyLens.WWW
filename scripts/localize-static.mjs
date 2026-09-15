@@ -39,7 +39,7 @@ function injectLanguageSwitch(html, lang, page) {
 
 const zhCommon = [
   ['lang="zh-CN"', 'lang="zh-CN"'],
-  [">Home<", ">首页<"], [">About Us<", ">关于我们<"], [">Product<", ">产品<"], [">Lab<", ">实验室<"], [">Solution<", ">解决方案<"], [">Contact<", ">联系我们<"],
+  [">Home<", ">首页<"], [">About Us<", ">关于我们<"], [">Product<", ">产品<"], [">Devices<", ">设备<"], [">Lab<", ">实验室<"], [">Solution<", ">解决方案<"], [">Contact<", ">联系我们<"],
   ["Your Wellness, Our Unwavering Commitment", "您的健康，是我们坚定不移的承诺"],
   ["We detect<br/>disease before<br/>it strikes.", "在疾病发生之前，<br/>我们先一步发现。"],
   ["HolyLens is a global innovator in AI medical devices, combining AI with advanced imaging and acoustic technologies.", "HolyLens 是全球领先的 AI 医疗设备创新企业，将人工智能与先进医学影像及声学技术深度融合。"],

@@ -184,7 +184,7 @@ const translations = [
 function nav(lang) {
   const zh = lang === "zh";
   const other = zh ? "en" : "zh";
-  return `<nav class="lab-nav"><a class="official-brand" href="/${lang}/" aria-label="HOLYLENS home"><img class="lab-logo" src="/images/holylens/logo-hd.png" alt="HOLYLENS"></a><div class="official-links"><a href="/${lang}/">${zh ? "首页" : "Home"}</a><a href="/${lang}/product/">${zh ? "产品" : "Product"}</a><a class="active" href="/${lang}/lab/">${zh ? "实验室" : "Lab"}</a><a href="/${lang}/#solution">${zh ? "解决方案" : "Solution"}</a><a href="/${lang}/contact/">${zh ? "联系" : "Contact"}</a></div><a class="official-language desktop-language" href="/${other}/lab/">${zh ? "EN" : "CN"} ↗</a><div class="official-mobile-links"><a href="/${lang}/contact/">${zh ? "联系" : "Contact"}</a><a class="official-language" href="/${other}/lab/">${zh ? "EN" : "CN"} ↗</a></div></nav>`;
+  return `<nav class="lab-nav"><a class="official-brand" href="/${lang}/" aria-label="HOLYLENS home"><img class="lab-logo" src="/images/holylens/logo-hd.png" alt="HOLYLENS"></a><div class="official-links"><a href="/${lang}/">${zh ? "首页" : "Home"}</a><a href="/${lang}/product/">${zh ? "设备" : "Devices"}</a><a class="active" href="/${lang}/lab/">${zh ? "实验室" : "Lab"}</a><a href="/${lang}/#solution">${zh ? "解决方案" : "Solution"}</a><a href="/${lang}/contact/">${zh ? "联系" : "Contact"}</a></div><a class="official-language desktop-language" href="/${other}/lab/">${zh ? "EN" : "CN"} ↗</a><div class="official-mobile-links"><a href="/${lang}/contact/">${zh ? "联系" : "Contact"}</a><a class="official-language" href="/${other}/lab/">${zh ? "EN" : "CN"} ↗</a></div></nav>`;
 }
 
 function footer(lang) {
