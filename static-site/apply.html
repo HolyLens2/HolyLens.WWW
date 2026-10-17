@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>投递简历 · 神镜医疗</title>
+<style>
+:root{--ink:#0A1F33;--ground:#F3F5F7;--muted:#45586B;--accent:#B5531C;--accent-dark:#8A3E14}
+body.job-ai{--accent:#007C8A;--accent-dark:#005A64}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--ground);color:var(--ink)}
+body{font-family:-apple-system,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",sans-serif;line-height:1.6;-webkit-text-size-adjust:100%}
+.wrap{max-width:480px;margin:0 auto;padding:28px 20px 40px;min-height:100vh;display:flex;flex-direction:column;gap:22px}
+.brand{display:flex;align-items:center;gap:12px}
+.lens{width:40px;height:40px;border-radius:50%;border:5px solid var(--ink);display:flex;align-items:center;justify-content:center;flex:none}
+.lens i{width:13px;height:13px;border-radius:50%;background:var(--accent);display:block}
+.brand b{display:block;font-family:"SF Mono",Menlo,Consolas,monospace;letter-spacing:3px;font-size:18px;line-height:1.1}
+.brand span{font-size:13px;color:var(--muted);letter-spacing:1px}
+.kicker{margin:10px 0 0;font-size:15px;font-weight:700;color:var(--accent);letter-spacing:2px}
+h1{margin:4px 0 0;font-size:40px;line-height:1.15;font-weight:900;letter-spacing:1px}
+.meta{margin:6px 0 0;font-size:15px;color:var(--muted)}
+.btn{display:flex;align-items:center;justify-content:center;gap:10px;min-height:58px;border-radius:12px;border:0;background:var(--accent);color:#fff;font:inherit;font-size:19px;font-weight:700;text-decoration:none;cursor:pointer;width:100%}
+.btn:active{background:var(--accent-dark)}
+.btn.secondary{background:#fff;color:var(--ink);border:2px solid var(--ink);font-size:16px;min-height:52px}
+.card{background:#fff;border-radius:12px;padding:18px 18px 16px;display:flex;flex-direction:column;gap:12px}
+.card h2{margin:0;font-size:16px}
+.email{font-family:"SF Mono",Menlo,Consolas,monospace;font-size:20px;font-weight:700;word-break:break-all}
+.tips{margin:0;padding-left:20px;font-size:14px;color:var(--muted)}
+.wx{display:none;background:var(--ink);color:#fff;border-radius:12px;padding:16px 18px;font-size:15px}
+.wx strong{color:#FFD7B5}
+body.job-ai .wx strong{color:#9FE7EF}
+.is-wechat .wx{display:block}
+.toast{position:fixed;left:50%;bottom:36px;transform:translateX(-50%);background:var(--ink);color:#fff;padding:10px 18px;border-radius:999px;font-size:14px;opacity:0;transition:opacity .2s;pointer-events:none}
+.toast.show{opacity:1}
+footer{margin-top:auto;font-size:12px;color:var(--muted);text-align:center}
+footer a{color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="brand">
+    <div class="lens" aria-hidden="true"><i></i></div>
+    <div><b>HOLYLENS</b><span>神镜（上海）医疗设备有限公司</span></div>
+  </div>
+
+  <div>
+    <p class="kicker">2026 校园招聘 · 投递简历</p>
+    <h1 id="job-title">PCB研发工程师</h1>
+    <p class="meta" id="job-meta">招聘 2 人 · 5–15K/月 + 福利</p>
+  </div>
+
+  <div class="wx" role="note">
+    微信里无法直接打开邮件 App。请点右上角 <strong>「···」</strong>，选择 <strong>「在浏览器打开」</strong>，或复制下方邮箱后自行发送。
+  </div>
+
+  <a class="btn" id="mail-btn" href="mailto:hr@holylens.com">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m3 7 9 6 9-6"></path></svg>
+    打开邮件，发送简历
+  </a>
+
+  <div class="card">
+    <h2>简历投递邮箱</h2>
+    <div class="email">hr@holylens.com</div>
+    <button class="btn secondary" type="button" id="copy-btn">复制邮箱地址</button>
+  </div>
+
+  <div class="card">
+    <h2>投递小提示</h2>
+    <ol class="tips">
+      <li>邮件主题已自动填好：<span id="subject-preview">应聘PCB研发工程师-姓名-学校</span>，请替换成您的姓名和学校</li>
+      <li>请以 PDF 附件形式添加简历</li>
+      <li>正文已预留姓名、学校/专业、毕业时间、联系电话，请补充完整</li>
+    </ol>
+  </div>
+
+  <footer>
+    10月20日现场面试欢迎当面交流 · <a href="https://www.holylens.com">www.holylens.com</a>
+  </footer>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function () {
+  var JOBS = {
+    pcb: { title: 'PCB研发工程师', meta: '招聘 2 人 · 5–15K/月 + 福利', cls: '' },
+    ai:  { title: 'AI模型训练师',  meta: '招聘 1 名 · 8K+/月 + 福利',  cls: 'job-ai' }
+  };
+  var EMAIL = 'hr@holylens.com';
+  var key = (new URLSearchParams(location.search).get('job') || 'pcb').toLowerCase();
+  var job = JOBS[key] || JOBS.pcb;
+
+  if (job.cls) document.body.classList.add(job.cls);
+  document.getElementById('job-title').textContent = job.title;
+  document.getElementById('job-meta').textContent = job.meta;
+  document.title = '投递简历 · ' + job.title + ' · 神镜医疗';
+
+  var subject = '应聘' + job.title + '-姓名-学校';
+  var body = '您好，我应聘' + job.title + '岗位。\n\n姓名：\n学校/专业：\n毕业时间：\n联系电话：\n\n（简历见附件）';
+  var mailto = 'mailto:' + EMAIL + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+  document.getElementById('subject-preview').textContent = subject;
+  document.getElementById('mail-btn').setAttribute('href', mailto);
+
+  var ua = navigator.userAgent || '';
+  var isWeChat = /MicroMessenger/i.test(ua);
+  if (isWeChat) document.documentElement.classList.add('is-wechat');
+
+  // 非微信环境：页面打开后自动弹出邮件窗口
+  if (!isWeChat) {
+    setTimeout(function () { location.href = mailto; }, 400);
+  }
+
+  var toast = document.getElementById('toast');
+  function showToast(msg) {
+    toast.textContent = msg;
+    toast.classList.add('show');
+    setTimeout(function () { toast.classList.remove('show'); }, 1800);
+  }
+
+  document.getElementById('copy-btn').addEventListener('click', function () {
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = EMAIL; ta.setAttribute('readonly', '');
+      ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      try { document.execCommand('copy'); showToast('已复制 ' + EMAIL); }
+      catch (e) { showToast('请长按邮箱地址手动复制'); }
+      document.body.removeChild(ta);
+    }
+    try {
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(EMAIL).then(function () { showToast('已复制 ' + EMAIL); }, fallback);
+      } else { fallback(); }
+    } catch (e) { fallback(); }
+  });
+})();
+</script>
+</body>
+</html>
