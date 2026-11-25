@@ -98,6 +98,7 @@ for (const variant of ['zh', 'en', '']) {
     .replace(/<meta name="description" content="[^"]*"\/>/, `<meta name="description" content="${escape(c.lead)}"/>`)
     .replace(/<link rel="preload"[^>]*as="image"\/>/g, '')
     .replace('</head>', `<style>.product-detail-page .detail-hero h1{font-size:clamp(30px,3.2vw,52px);line-height:1.2;overflow-wrap:anywhere}.product-detail-page .detail-hero-image img,.product-detail-page .detail-feature-image img,.product-detail-page .detail-structure-image img{width:100%;height:auto;max-height:640px;object-fit:contain;transform:none;position:static}.product-detail-page .detail-feature-image{overflow:hidden;align-self:center}.product-detail-page .detail-feature-image img{max-width:100%;margin:0}.product-detail-page .detail-specs dd{overflow-wrap:anywhere}@media(max-width:767px){.product-detail-page h2{font-size:clamp(25px,6vw,36px);line-height:1.3}.product-detail-page .detail-hero-image img,.product-detail-page .detail-feature-image img,.product-detail-page .detail-structure-image img{max-height:420px}}</style></head>`);
+  if (lang === 'zh') html = html.replace(`<h1>${c.name}</h1>`, '<h1>宠物AI五分类<br/>血液分析仪</h1>');
   await fs.mkdir(path.join(directory, slug), {recursive:true});
   await fs.writeFile(path.join(directory, slug, 'index.html'), html);
 
