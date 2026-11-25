@@ -5,8 +5,8 @@ import path from 'node:path';
 // Keep internal BOM, pricing and unvalidated commercial claims out of the site.
 const root = process.cwd();
 const slug = 'pet-5diff';
-const image = '/images/holylens/pet-5diff-exterior.jpg';
-const structure = '/images/holylens/pet-5diff-structure.jpg';
+const image = '/images/holylens/pet-5diff-exterior-solid.jpg';
+const structure = '/images/holylens/pet-5diff-back-solid.jpg';
 const escape = value => value.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('"', '&quot;');
 const content = {
   zh: {
@@ -27,7 +27,7 @@ const content = {
       ['一体化触屏工作台', '10.1英寸触屏整合样本操作、结果查看与图像复核。单次分析时间设计目标为3–5分钟，实际表现以验证结果为准。'],
     ],
     structureLabel: '设备结构', structureTitle: '紧凑机身，<br/>集成完整成像链路。',
-    structureText: '外观与结构图来自本产品三维工程概念模型。上部为触屏与计算单元，下部为前置卡盒舱，内部集成光学成像、精密运动与控制系统。',
+    structureText: '外观图展示完整不透明机身及背部接口，来自本产品三维工程概念模型。下方模块示意说明内部功能组成，不采用透视外壳展示。',
     structureItems: [
       ['显示与计算', '10.1英寸触屏；Windows 11工控平台，负责交互、图像处理与AI推理。'],
       ['微流控卡盒舱', '前置舱门、电动进出卡托盘及卡盒识别模块。'],
@@ -42,7 +42,7 @@ const content = {
     settingsLabel: '适用场景', settingsTitle: '围绕宠物诊疗工作流。',
     settings: [['宠物医院', '支持门诊血液检查与兽医结果复核的产品研发方向。'], ['连锁诊疗机构', '围绕标准化操作、人员培训和结果管理设计。'], ['兽医研发与验证', '支持卡盒、成像、分类算法及多物种性能的研发验证。']],
     ctaLabel: '产品咨询', ctaTitle: '一起完善，<br/>下一代宠物检验。', ctaText: '了解研发进展、样机合作与产品配置方案。',
-    imageAlt: '宠物AI五分类血液分析仪三维外观概念图', structureAlt: '宠物AI五分类血液分析仪内部结构概念图', link: '查看产品资料 ↗',
+    imageAlt: '宠物AI五分类血液分析仪完整机身外观效果图', structureAlt: '宠物AI五分类血液分析仪完整机身背部效果图', link: '查看产品资料 ↗',
   },
   en: {
     name: 'Pet AI 5-Part Hematology Analyzer', category: 'FOR PETS',
@@ -62,7 +62,7 @@ const content = {
       ['Integrated touchscreen', 'A 10.1-inch display combines sample operation, results and image review. The analysis time design target is 3–5 minutes, subject to validation.'],
     ],
     structureLabel: 'DEVICE STRUCTURE', structureTitle: 'A compact system.<br/>A complete imaging chain.',
-    structureText: 'Exterior and internal views are taken from this product’s engineering concept model. The upper assembly combines touch interaction and computing, above a front-loading cartridge chamber with integrated optics, motion and control.',
+    structureText: 'Solid exterior views show the complete opaque enclosure and rear interfaces from the engineering concept model. The module diagram below explains the functional architecture without a transparent housing view.',
     structureItems: [['Display and computing', '10.1-inch touchscreen and Windows 11 industrial computing for interaction, image processing and AI inference.'], ['Cartridge chamber', 'Front access door, motorized tray and cartridge identification.'], ['Optics and motion', '5 MP camera, 20×/40× objectives, XY scanning and Z-axis autofocus.'], ['Control and cooling', 'STM32 controller, 24 V power, USB connectivity and a HEPA-filtered cooling path.']],
     workflowLabel: 'WORKFLOW', workflowTitle: 'One cartridge.<br/>Four connected steps.',
     workflow: [['Prepare', 'Prepare the specimen using validated sampling and cartridge instructions.'], ['Load', 'Insert the single-use cartridge and confirm specimen details.'], ['Analyze', 'Autofocus and scanning capture cell images for counting and classification.'], ['Review', 'A veterinarian reviews parameters, original images and flags together.']],
@@ -72,7 +72,7 @@ const content = {
     settingsLabel: 'INTENDED SETTINGS', settingsTitle: 'Designed around veterinary care.',
     settings: [['Veterinary hospitals', 'Development focused on routine hematology and veterinarian review.'], ['Clinic groups', 'Designed around consistent operation, staff training and result management.'], ['Research and validation', 'Cartridge, imaging, algorithm and species-specific performance development.']],
     ctaLabel: 'PRODUCT ENQUIRIES', ctaTitle: 'Shape the next step<br/>in veterinary testing.', ctaText: 'Discuss development progress, prototype collaboration and configuration.',
-    imageAlt: 'Pet AI 5-part hematology analyzer exterior engineering concept', structureAlt: 'Pet AI 5-part hematology analyzer internal engineering concept', link: 'View product information ↗',
+    imageAlt: 'Pet AI 5-part hematology analyzer solid exterior rendering', structureAlt: 'Pet AI 5-part hematology analyzer solid rear exterior rendering', link: 'View product information ↗',
   },
 };
 
@@ -87,7 +87,7 @@ for (const variant of ['zh', 'en', '']) {
   replace('detail-hero', `<div class="detail-hero-copy"><a class="detail-back" href="${prefix}/product/#pets">${c.back}</a><p class="detail-kicker">${c.kicker}</p><h1>${c.name}</h1><p class="detail-lead">${c.lead}</p><div class="detail-tags">${c.tags.map(t=>`<span>${t}</span>`).join('')}</div><a class="detail-primary" href="#specifications">${lang==='zh'?'查看技术规格':'Explore specifications'} ↘</a></div><div class="detail-hero-image">${img(image,c.imageAlt).replace('loading="lazy"','fetchpriority="high"')}</div>`);
   replace('detail-intro', `<p class="detail-section-label">${c.overview}</p><div><h2>${c.overviewTitle}</h2><p>${c.overviewText}</p></div>`);
   replace('detail-features', `<div class="detail-feature-image">${img(image,c.imageAlt)}</div><div class="detail-feature-copy"><p class="detail-section-label">${c.functions}</p><h2>${c.featureTitle}</h2><div class="feature-list">${c.features.map(([t,b],i)=>`<article><span>0${i+1}</span><div><h3>${t}</h3><p>${b}</p></div></article>`).join('')}</div></div>`);
-  replace('detail-structure', `<div class="detail-structure-copy"><p class="detail-section-label">${c.structureLabel}</p><h2>${c.structureTitle}</h2><p>${c.structureText}</p><ol>${c.structureItems.map(([t,b])=>`<li><b>${t}</b><span>${b}</span></li>`).join('')}</ol></div><div class="detail-structure-image">${img(structure,c.structureAlt)}</div>`);
+  replace('detail-structure', `<div class="detail-structure-copy"><p class="detail-section-label">${c.structureLabel}</p><h2>${c.structureTitle}</h2><p>${c.structureText}</p><ol>${c.structureItems.map(([t,b])=>`<li><b>${t}</b><span>${b}</span></li>`).join('')}</ol></div><div class="detail-structure-image" style="height:auto;aspect-ratio:auto;overflow:visible">${img(structure,c.structureAlt)}<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:20px" aria-label="${lang==='zh'?'功能模块示意图':'Functional module diagram'}">${c.structureItems.map(([t],i)=>`<div style="padding:16px;background:white;border:1px solid #cad8e8;color:#0c2b55;font-size:16px;line-height:1.5"><small style="display:block;color:#1674c9">0${i+1}</small>${t}</div>`).join('')}</div></div>`);
   replace('detail-workflow', `<p class="detail-section-label">${c.workflowLabel}</p><h2>${c.workflowTitle}</h2><div class="workflow-steps">${c.workflow.map(([t,b],i)=>`<article><span>0${i+1}</span><h3>${t}</h3><p>${b}</p></article>`).join('')}</div>`);
   replace('detail-specs', `<div><p class="detail-section-label">${c.specsLabel}</p><h2>${c.specsTitle}</h2><p>${c.note}</p></div><dl>${c.specs.map(([t,b])=>`<div><dt>${t}</dt><dd>${b}</dd></div>`).join('')}</dl>`);
   html = html.replace('<section class="detail-specs">','<section class="detail-specs" id="specifications">');
@@ -102,6 +102,7 @@ for (const variant of ['zh', 'en', '']) {
   await fs.writeFile(path.join(directory, slug, 'index.html'), html);
 
   let listing = await fs.readFile(path.join(directory, 'index.html'), 'utf8');
+  listing = listing.replaceAll('/images/holylens/pet-5diff-exterior.jpg', image);
   const section = `<div class="catalog-heading home" id="pets"><p>${c.category}</p><h1>${c.categoryTitle}</h1><span>${c.categoryText}</span></div><article class="catalog-row"><div class="catalog-number">01<i></i></div><div class="catalog-image">${img(image,c.imageAlt)}</div><div class="catalog-info"><p>${c.kicker}</p><h2>${c.name}</h2><p class="description">${c.lead}</p><ul>${c.tags.map(t=>`<li>${t}</li>`).join('')}</ul><a href="${prefix}/product/${slug}/">${c.link}</a></div></article>`;
   if (!listing.includes('id="pets"')) listing = listing.replace('</section><section class="product-platform">',`${section}</section><section class="product-platform">`);
   if (!listing.includes('id="pets"')) throw new Error(`Catalog insertion failed: ${variant}`);
